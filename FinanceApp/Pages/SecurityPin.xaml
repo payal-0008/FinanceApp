@@ -14,7 +14,7 @@
            Margin="35"
            FontAttributes="Bold"/>
 
-        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" HasShadow="False">
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" HasShadow="False" Margin="0,0,0,-20">
             <Grid RowDefinitions="*, Auto" Padding="30">
 
                 <VerticalStackLayout Grid.Row="0" Spacing="20" VerticalOptions="Center">

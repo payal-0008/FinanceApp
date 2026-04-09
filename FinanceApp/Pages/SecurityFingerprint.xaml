@@ -13,7 +13,7 @@
            HorizontalOptions="Center"
            Margin="35"
            FontAttributes="Bold"/>
-        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}">
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,0,0,-20">
             <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" Padding="0,60,0,0">
                 <Grid Grid.Row="0" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center">
             <Border Stroke="{StaticResource White}"

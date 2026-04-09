@@ -19,7 +19,7 @@
             </Border>
         </Grid>
 
-        <Border Grid.Row="1" BackgroundColor="{StaticResource White}" StrokeShape="RoundRectangle 40,40,0,0" Padding="15">
+        <Border Grid.Row="1" BackgroundColor="{StaticResource White}" StrokeShape="RoundRectangle 40,40,0,0" Padding="15" Margin="0,0,0,-20">
             <ScrollView>
                 <VerticalStackLayout Spacing="15">
 
