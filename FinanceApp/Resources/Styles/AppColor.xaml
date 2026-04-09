@@ -10,5 +10,6 @@
     <Color x:Key="PagesBg">#F1FFF3</Color>
     <Color x:Key="EntryBG">#BFDAC8</Color>
     <Color x:Key="Blue">#0068FF</Color>
-    <Color x:Key="Black">#052224</Color>
+    <Color x:Key="Black">#052224</Color> 
+    <Color x:Key="transparent">Transparent</Color>
 </ResourceDictionary>

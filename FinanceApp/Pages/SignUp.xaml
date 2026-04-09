@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.SignUp"
+             Shell.NavBarIsVisible="False"
+            BackgroundColor="{StaticResource MainColor}"
+             Title="SignUp">
+    <Grid RowDefinitions="Auto,*">
+        <Label Text="Create Account"
+            TextColor="{StaticResource Black}"
+            FontSize="30" 
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Margin="35"
+               FontAttributes="Bold"
+            />
+
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0">
+            <ScrollView>
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto" Padding="30" RowSpacing="15">
+                <Grid Grid.Row="0" RowDefinitions="Auto,Auto" RowSpacing="8">
+                    <Label Text="Full Name" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                    <Frame Grid.Row="1" Padding="20,0,20,0" 
+                          BorderColor="{StaticResource EntryBG}" 
+                          BackgroundColor="{StaticResource EntryBG}"
+                          CornerRadius="30">
+
+                        <Entry Placeholder="example@example.com" 
+                          PlaceholderColor="{StaticResource Gray400}" 
+                          Keyboard="Text" 
+                          TextColor="{StaticResource Black}"/>
+                    </Frame>
+                </Grid>
+
+                <Grid Grid.Row="1" RowDefinitions="Auto,Auto" RowSpacing="8">
+                    <Label Text="Email" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+
+                    <Frame Grid.Row="1" Padding="20,0,20,0" 
+                         BorderColor="{StaticResource EntryBG}" 
+                         BackgroundColor="{StaticResource EntryBG}"
+                         CornerRadius="30">
+
+                        <Entry Placeholder="example@gmail.com"
+                               Keyboard="Email"
+                       PlaceholderColor="{StaticResource Gray400}"
+                       TextColor="{StaticResource Black}"/>
+                    </Frame>
+                </Grid>
+
+                <Grid Grid.Row="2" RowDefinitions="Auto,Auto" RowSpacing="8">
+
+                    <Label Text="Mobile Number" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+
+                    <Frame Grid.Row="1" Padding="20,0,20,0" 
+                         BorderColor="{StaticResource EntryBG}" 
+                         BackgroundColor="{StaticResource EntryBG}"
+                         CornerRadius="30">
+
+                        <Entry Text="+91"
+                            Placeholder=" 123 456"
+                             PlaceholderColor="{StaticResource Gray400}"
+                             Keyboard="Numeric"
+                             TextColor="{StaticResource Black}"/>
+                    </Frame>
+                </Grid>
+                <Grid Grid.Row="3" RowDefinitions="Auto,Auto" RowSpacing="8">
+                    <Label Text="Date Of Birth" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+
+                    <Frame Grid.Row="1" Padding="20,0,20,0" 
+                            BorderColor="{StaticResource EntryBG}" 
+                            BackgroundColor="{StaticResource EntryBG}"
+                            CornerRadius="30">
+
+                        <Entry Placeholder="DD/MM/YYYY"
+                             PlaceholderColor="{StaticResource Gray400}"
+                               Keyboard="Date"
+                             TextColor="{StaticResource Black}"/>
+                    </Frame>
+                </Grid>
+                <Grid Grid.Row="4" RowDefinitions="Auto,Auto" RowSpacing="8">
+                    <Label Text="Password" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+
+                    <Frame Grid.Row="1" Padding="20,0,20,0" 
+                      BorderColor="{StaticResource EntryBG}" 
+                      BackgroundColor="{StaticResource EntryBG}"
+                      CornerRadius="30">
+
+                        <Entry Placeholder="1234"
+                         PlaceholderColor="{StaticResource Gray400}"
+                          Keyboard="Password"
+                          TextColor="{StaticResource Black}"/>
+                    </Frame>
+                </Grid>
+                <Grid Grid.Row="5" RowDefinitions="Auto,Auto" RowSpacing="8">
+                    <Label Text="Confirm Password" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+
+                    <Frame Grid.Row="1" Padding="20,0,20,0" 
+                       BorderColor="{StaticResource EntryBG}" 
+                       BackgroundColor="{StaticResource EntryBG}"
+                       CornerRadius="30">
+
+                        <Entry Placeholder="1234"
+                       PlaceholderColor="{StaticResource Gray400}"
+                        Keyboard="Password"
+                       TextColor="{StaticResource Black}"/>
+                    </Frame>
+                </Grid>
+                <Grid Grid.Row="6" RowDefinitions="Auto,Auto,Auto,Auto">
+                    <Label Grid.Row="0" HorizontalOptions="Center" Padding="0,05">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="By continuing, " FontSize="12" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                                <Span Text="you agree to" FontSize="12" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                            </FormattedString>
+
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Grid.Row="1" HorizontalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Terms of Use" FontSize="12" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                                <Span Text=" and " FontSize="12" TextColor="{StaticResource Black}"/>
+                                <Span Text="Privacy Policy" FontSize="12" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                            </FormattedString>
+
+                        </Label.FormattedText>
+                    </Label>
+                    <Button Grid.Row="2"
+                        Text="Sign Up"
+                        BackgroundColor="{StaticResource MainColor}"
+                        CornerRadius="20"
+                        Padding="58,0"
+                        Margin="15"
+                        TextColor="{StaticResource IconColor}"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                        Clicked="home"/>
+                    <Label Grid.Row="3" HorizontalOptions="Center" Padding="0,10,0,0" FontSize="19">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Already have an account? " FontSize="12" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                                    <Span Text="LogIn" FontSize="12" TextColor="{StaticResource Blue}" FontAttributes="Bold">
+                                        <Span.GestureRecognizers>
+                                            <TapGestureRecognizer Tapped="login"/>
+                                        </Span.GestureRecognizers>
+                                    </Span>
+                            </FormattedString>
+
+                        </Label.FormattedText>
+                    </Label>
+                </Grid>
+            </Grid>
+            </ScrollView>
+        </Frame>
+    </Grid>
+</ContentPage>

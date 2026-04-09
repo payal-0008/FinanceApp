@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.SecurityPin"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource MainColor}"
+             Title="SecurityPin">
+    <Grid RowDefinitions="Auto,*">
+        <Label Text="Security Pin"
+           TextColor="{StaticResource Black}"
+           FontSize="30" 
+           VerticalOptions="Center"
+           HorizontalOptions="Center"
+           Margin="35"
+           FontAttributes="Bold"/>
+
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" HasShadow="False">
+            <Grid RowDefinitions="*, Auto" Padding="30">
+
+                <VerticalStackLayout Grid.Row="0" Spacing="20" VerticalOptions="Center">
+                    <Label Text="Enter Security Pin" 
+                       TextColor="{StaticResource Black}" 
+                       FontAttributes="Bold" 
+                       FontSize="20" 
+                       HorizontalTextAlignment="Center"
+                       Margin="0,0,0,20"/>
+
+                    <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
+                        <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="Transparent" TextColor="{StaticResource Black}"/>
+                        </Border>
+                        <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="Transparent" TextColor="{StaticResource Black}"/>
+                        </Border>
+                        <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="Transparent" TextColor="{StaticResource Black}"/>
+                        </Border>
+                        <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="Transparent" TextColor="{StaticResource Black}"/>
+                        </Border>
+                        <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="Transparent" TextColor="{StaticResource Black}"/>
+                        </Border>
+                        <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="Transparent" TextColor="{StaticResource Black}"/>
+                        </Border>
+                    </HorizontalStackLayout>
+
+                    <Button Text="Accept"
+                        BackgroundColor="{StaticResource MainColor}"
+                        CornerRadius="20"
+                        Margin="0,40,0,0"
+                        Padding="60,0"
+                        TextColor="{StaticResource Black}"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Center"
+                         Clicked="password"/>
+
+                    <Button Text="Send Again"
+                        BackgroundColor="{StaticResource EntryBG}"
+                        CornerRadius="20"
+                        Padding="60,0"
+                        TextColor="{StaticResource IconColor}"
+                        FontAttributes="Bold"
+                        FontSize="18"
+                        HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Spacing="10" Margin="0,0,0,20">
+                    <Label Text="or sign up with" 
+                       FontSize="12"
+                       HorizontalOptions="Center"
+                       TextColor="{StaticResource Black}"
+                       FontAttributes="Bold"/>
+
+                    <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
+                        <Image Source="fb" HeightRequest="30" WidthRequest="30"/>
+                        <Image Source="google.png" HeightRequest="30" WidthRequest="30"/>
+                    </HorizontalStackLayout>
+
+                    <Label HorizontalOptions="Center">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Don't have an account? " FontSize="12" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                                <Span Text="Sign Up" FontSize="12" TextColor="{StaticResource Blue}" FontAttributes="Bold"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </VerticalStackLayout>
+
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>

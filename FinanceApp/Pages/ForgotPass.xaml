@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.ForgotPass"
+            Shell.NavBarIsVisible="False"
+            BackgroundColor="{StaticResource MainColor}"
+            Title="ForgotPass">
+    <Grid RowDefinitions="Auto,*">
+        <Label Text="Forgot Password"
+            TextColor="{StaticResource Black}"
+            FontSize="30" 
+            VerticalOptions="Center"
+            HorizontalOptions="Center"
+            Margin="35"
+            FontAttributes="Bold"/>
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}">
+            <ScrollView>
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto" Padding="30" RowSpacing="15" VerticalOptions="Center">
+                <Grid Grid.Row="0" RowDefinitions="Auto,Auto" RowSpacing="8">
+                    <Label Text="Reset Password?" TextColor="{StaticResource Black}" FontAttributes="Bold" FontSize="20"/>
+                    <Label Grid.Row="1" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. " TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                  
+                </Grid>
+                <Grid Grid.Row="1" RowDefinitions="Auto,Auto" RowSpacing="8" Margin="0,40,0,0">
+                    <Label Text="Enter Email Address" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+
+                    <Frame Grid.Row="1" Padding="20,0,20,0" 
+                     BorderColor="{StaticResource EntryBG}" 
+                     BackgroundColor="{StaticResource EntryBG}"
+                     CornerRadius="30">
+
+                        <Entry Placeholder="example@example.com"
+                           PlaceholderColor="{StaticResource Gray400}" 
+                           Keyboard="Email" 
+                           TextColor="{StaticResource Black}"/>
+                    </Frame>
+                </Grid>
+                <Grid Grid.Row="2"  RowSpacing="10">
+                    <Button Text="Next Step"
+                     BackgroundColor="{StaticResource MainColor}"
+                     CornerRadius="20"
+                     Margin="0,50,0,0"
+                     Padding="60,0"
+                     TextColor="{StaticResource Black}"
+                     FontAttributes="Bold"
+                     FontSize="18"
+                     HorizontalOptions="Center"
+                     Clicked="NextStep"/>
+
+                </Grid>
+                <Grid Grid.Row="3">
+                    <Button Text="Sign UP"
+                     BackgroundColor="{StaticResource EntryBG}"
+                     CornerRadius="20"
+                     Margin="0,50,0,0"
+                     Padding="60,0"
+                     TextColor="{StaticResource IconColor}"
+                     FontAttributes="Bold"
+                     FontSize="18"
+                     HorizontalOptions="Center"
+                     Clicked="sign"/>
+
+                </Grid>
+                <Grid Grid.Row="4" RowDefinitions="Auto,Auto,Auto">
+                    <Label Text="or sign up with" 
+                    FontSize="12"
+                    HorizontalOptions="Center"
+                    TextColor="{StaticResource Black}"
+                    FontAttributes="Bold"/>
+                    <Grid Grid.Row="1" ColumnDefinitions="Auto,Auto" ColumnSpacing="15" HorizontalOptions="Center" Padding="10">
+                        <Image Source="fb"
+                        HeightRequest="25"
+                        WidthRequest="25"/>
+                        <Image Grid.Column="1"
+                        Source="google.png"
+                        HeightRequest="25"
+                        WidthRequest="25"/>
+                    </Grid>
+                    <Label Grid.Row="2" HorizontalOptions="Center" Padding="0,05">
+                        <Label.FormattedText>
+                                <FormattedString>
+                                    <Span Text="Don't have an account? " FontSize="12" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                                    <Span Text="Sign Up" FontSize="12" TextColor="{StaticResource Blue}" FontAttributes="Bold">
+                                    </Span>
+                                </FormattedString>
+                            </Label.FormattedText>
+                    </Label>
+                </Grid>
+            </Grid>
+            </ScrollView>
+        </Frame>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.SecurityFingerprint"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource MainColor}"
+             Title="SecurityFingerprint">
+    <Grid RowDefinitions="Auto,*">
+        <Label Text="Security Fingerprint"
+           TextColor="{StaticResource Black}"
+           FontSize="30" 
+           VerticalOptions="Center"
+           HorizontalOptions="Center"
+           Margin="35"
+           FontAttributes="Bold"/>
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}">
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto" Padding="0,60,0,0">
+                <Grid Grid.Row="0" HeightRequest="150" WidthRequest="150" HorizontalOptions="Center">
+            <Border Stroke="{StaticResource White}"
+             StrokeThickness="6"
+             HeightRequest="180"
+             WidthRequest="180"
+             StrokeShape="RoundRectangle 95"
+             BackgroundColor="{StaticResource MainColor}" />
+
+            <Image Source="fingerprint.png"
+              HeightRequest="120"
+              WidthRequest="120"
+              HorizontalOptions="Center"
+              VerticalOptions="Center"
+              Margin="0,0,0,0" />
+        </Grid>
+
+        <Label Grid.Row="1" Text="Use Fingerprint To Access" 
+            TextColor="{StaticResource Black}" 
+            FontAttributes="Bold" 
+            FontSize="20" 
+            HorizontalTextAlignment="Center"
+            Margin="0,40,0,0"/>
+        <Label Grid.Row="2" Text="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua." 
+             TextColor="{StaticResource Black}" 
+             FontAttributes="Bold" 
+             FontSize="13" 
+             HorizontalTextAlignment="Center"
+             Margin="10,20,10,0"/>
+
+        <Grid Grid.Row="3"  RowSpacing="10">
+          <Button Text="Use Touch Id"
+             BackgroundColor="{StaticResource EntryBG}"
+             CornerRadius="20"
+             Margin="0,50,0,0"
+             Padding="60,0"
+             TextColor="{StaticResource Black}"
+             FontAttributes="Bold"
+             FontSize="18"
+             HorizontalOptions="Center"/>
+        </Grid>
+        <Label Grid.Row="4" Text="Or perfer use pin code?" 
+             TextColor="{StaticResource Black}"  
+             FontSize="12" 
+             HorizontalTextAlignment="Center"
+             Margin="0,20,0,0"/>
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>
