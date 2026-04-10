@@ -4,6 +4,7 @@
              x:Class="FinanceApp.Pages.Successfull"
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource MainColor}"
+           NavigationPage.HasNavigationBar="False"
              Title="Successfull">
     <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
         <VerticalStackLayout Spacing="30" HorizontalOptions="Center" VerticalOptions="Center">

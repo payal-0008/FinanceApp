@@ -4,6 +4,7 @@
              x:Class="FinanceApp.Pages.Login"
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource MainColor}"
+             NavigationPage.HasNavigationBar="False"
              Title="Login">
     <Grid RowDefinitions="Auto,*">
         <Label Text="Welcome"
@@ -45,7 +46,8 @@
                     </Frame>
                 </Grid>
                 <Grid Grid.Row="2" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="12">
-                    <Button Text="Log In"
+                        <Button x:Name="LoginBtn"
+                        Text="Log In"
                             BackgroundColor="{StaticResource MainColor}"
                             CornerRadius="20"
                             Margin="0,50,0,0"
@@ -56,7 +58,15 @@
                             HorizontalOptions="Center"
                             Clicked="home"
                     />
-                    <Label Grid.Row="1"
+                        <ActivityIndicator x:Name="Loader"
+                       IsRunning="False"
+                       IsVisible="False"
+                       Color="{StaticResource Black}"
+                       HorizontalOptions="Center"
+                       HeightRequest="40"
+                       WidthRequest="40"
+                       Margin="0,-45,0,0" />
+                        <Label Grid.Row="1"
                            Text="Forget Password?"
                            HorizontalOptions="Center"
                            TextColor="{StaticResource Black}"

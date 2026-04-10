@@ -5,11 +5,28 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:FinanceApp"
     xmlns:Pages="clr-namespace:FinanceApp.Pages"
+    Shell.TabBarBackgroundColor="{StaticResource MainColor}"
+    Shell.TabBarForegroundColor="{StaticResource Black}"
+    Shell.TabBarUnselectedColor="{StaticResource IconColor}"
+    Shell.TabBarTitleColor="{StaticResource Black}"
     Title="FinanceApp">
 
-    <ShellContent
-        Title="Home"
-        ContentTemplate="{DataTemplate Pages:Login}"
-        Route="MainPage" />
+    <TabBar>
+        <Tab Title="Home" Icon="home.png">
+            <ShellContent ContentTemplate="{DataTemplate Pages:Dashboard}"/>
+        </Tab>
+        <Tab Title="Analysis" Icon="analysis.png">
+            <ShellContent ContentTemplate="{DataTemplate Pages:Analysis}"/>
+        </Tab>
+        <Tab Title="Transaction" Icon="transaction.png">
+            <ShellContent ContentTemplate="{DataTemplate Pages:Transaction}"/>
+        </Tab>
+        <Tab Title="Category" Icon="menu.png">
+            <ShellContent ContentTemplate="{DataTemplate Pages:Category}"/>
+        </Tab>
+        <Tab Title="Profile" Icon="user.png">
+            <ShellContent ContentTemplate="{DataTemplate Pages:Profile}"/>
+        </Tab>
+    </TabBar>
 
 </Shell>

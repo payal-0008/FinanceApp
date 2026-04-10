@@ -4,6 +4,7 @@
              x:Class="FinanceApp.Pages.ForgotPass"
             Shell.NavBarIsVisible="False"
             BackgroundColor="{StaticResource MainColor}"
+            NavigationPage.HasNavigationBar="False"
             Title="ForgotPass">
     <Grid RowDefinitions="Auto,*">
         <Label Text="Forgot Password"

@@ -11,7 +11,28 @@ public partial class SignUp : ContentPage
 		await Navigation.PushAsync(new Login());
 	}
 	private async void home(object sender,EventArgs e)
-	{
-		await Navigation.PushAsync(new Dashboard());
+    { 
+    SignUpBtn.IsEnabled = false;
+    SignUpBtn.Text = "";
+
+   
+    SignUpLoader.IsVisible = true;
+    SignUpLoader.IsRunning = true;
+		await Task.Delay(150);
+
+    try 
+    {
+        MainThread.BeginInvokeOnMainThread(() =>
+        {
+            Application.Current.MainPage = new AppShell();
+});
+    }
+    catch (Exception ex)
+    {
+    SignUpLoader.IsRunning = false;
+    SignUpLoader.IsVisible = false;
+    SignUpBtn.IsEnabled = true;
+    SignUpBtn.Text = "Sign Up";
+}
 	}
 }

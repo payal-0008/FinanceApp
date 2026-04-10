@@ -24,7 +24,25 @@ public partial class Login : ContentPage
 	}
 	private async void home(object sender,EventArgs e)
 	{
-		await Navigation.PushAsync(new Dashboard());
-	}
+        Loader.IsVisible = true;
+        Loader.IsRunning = true;
+        LoginBtn.IsEnabled = false;
+        LoginBtn.Text = "";
+        await Task.Delay(150);
+        try
+        {
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                Application.Current.MainPage = new AppShell();
+            });
+        }
+        catch (Exception ex)
+        {
+            Loader.IsRunning = false;
+            Loader.IsVisible = false;
+            LoginBtn.IsEnabled = true;
+            LoginBtn.Text = "Log In";
+        }
+    }
 
 }

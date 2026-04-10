@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinanceApp.Pages.SignUp"
              Shell.NavBarIsVisible="False"
-            BackgroundColor="{StaticResource MainColor}"
+             BackgroundColor="{StaticResource MainColor}"
+             NavigationPage.HasNavigationBar="False"
              Title="SignUp">
     <Grid RowDefinitions="Auto,*">
         <Label Text="Create Account"
@@ -125,7 +126,8 @@
 
                         </Label.FormattedText>
                     </Label>
-                    <Button Grid.Row="2"
+                        <Button x:Name="SignUpBtn"
+                        Grid.Row="2"
                         Text="Sign Up"
                         BackgroundColor="{StaticResource MainColor}"
                         CornerRadius="20"
@@ -136,7 +138,16 @@
                         FontSize="18"
                         HorizontalOptions="Center"
                         Clicked="home"/>
-                    <Label Grid.Row="3" HorizontalOptions="Center" Padding="0,10,0,0" FontSize="19">
+                        <ActivityIndicator x:Name="SignUpLoader"
+                       Grid.Row="2" 
+                       IsRunning="False"
+                       IsVisible="False"
+                       Color="{StaticResource Black}"
+                       HorizontalOptions="Center"
+                       VerticalOptions="Center"
+                       HeightRequest="35"
+                       WidthRequest="35"/>
+                        <Label Grid.Row="3" HorizontalOptions="Center" Padding="0,10,0,0" FontSize="19">
                         <Label.FormattedText>
                             <FormattedString>
                                 <Span Text="Already have an account? " FontSize="12" TextColor="{StaticResource Black}" FontAttributes="Bold"/>

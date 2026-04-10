@@ -4,6 +4,7 @@
              x:Class="FinanceApp.Pages.SecurityPin"
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource MainColor}"
+             NavigationPage.HasNavigationBar="False"
              Title="SecurityPin">
     <Grid RowDefinitions="Auto,*">
         <Label Text="Security Pin"

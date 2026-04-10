@@ -4,6 +4,7 @@
              x:Class="FinanceApp.Pages.SecurityFingerprint"
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource MainColor}"
+             NavigationPage.HasNavigationBar="False"
              Title="SecurityFingerprint">
     <Grid RowDefinitions="Auto,*">
         <Label Text="Security Fingerprint"
