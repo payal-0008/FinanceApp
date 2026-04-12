@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.EditProfile"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource MainColor}"
+             Title="EditProfile">
+    <Grid RowDefinitions="Auto,*">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
+            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Back"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Grid.Column="1" Text="Edit My Profile" FontSize="22" FontAttributes="Bold" 
+               TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="notification"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Border>
+        </Grid>
+
+        <Frame Grid.Row="1" CornerRadius="40" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-40" HasShadow="False">
+            <ScrollView>
+                <VerticalStackLayout Spacing="10" Padding="20,0">
+
+                    <Grid HeightRequest="130" WidthRequest="130" HorizontalOptions="Center">
+                        <Border HeightRequest="130" WidthRequest="130" StrokeShape="RoundRectangle 65" StrokeThickness="5" Stroke="{StaticResource Light}">
+                            <Image Source="john_profile.png" Aspect="AspectFill"/>
+                        </Border>
+                        <Border HeightRequest="35" WidthRequest="35" BackgroundColor="{StaticResource MainColor}" 
+                            StrokeShape="RoundRectangle 17" VerticalOptions="End" HorizontalOptions="End">
+                            <Image Source="camera.png" HeightRequest="18" VerticalOptions="Center"/>
+                        </Border>
+                    </Grid>
+
+                    <Label Text="John Smith" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                    <Label FontSize="14" HorizontalOptions="Center" TextColor="{StaticResource Black}">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="ID: " FontAttributes="Bold"/>
+                                <Span Text="25030024" TextColor="{StaticResource Blue}"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+
+                    <Label Text="Account Settings" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Black}" Margin="0,10,0,5"/>
+
+                    <VerticalStackLayout Spacing="10">
+                        <Label Text="Username" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                        <Frame Padding="15,2" BackgroundColor="{StaticResource EntryBG}" CornerRadius="15">
+                            <Entry Placeholder="John Smith" TextColor="{StaticResource Black}" FontSize="15" PlaceholderColor="{StaticResource Gray400}"/>
+                        </Frame>
+
+                        <Label Text="Phone" FontAttributes="Bold" TextColor="{StaticResource Black}" Margin="0,5,0,0"/>
+                        <Frame Padding="15,2" BackgroundColor="{StaticResource EntryBG}" CornerRadius="15">
+                            <Entry Placeholder="+44 555 5555 55" TextColor="{StaticResource Black}" Keyboard="Telephone" PlaceholderColor="{StaticResource Gray400}"/>
+                        </Frame>
+
+                        <Label Text="Email Address" FontAttributes="Bold" TextColor="#1B3139" Margin="0,5,0,0"/>
+                        <Frame Padding="15,2" BackgroundColor="{StaticResource EntryBG}" CornerRadius="15">
+                            <Entry Placeholder="example@example.com" TextColor="{StaticResource Black}" Keyboard="Email" PlaceholderColor="{StaticResource Gray400}"/>
+                        </Frame>
+                    </VerticalStackLayout>
+
+                    <Grid ColumnDefinitions="*, Auto" Margin="0,10,0,0">
+                        <Label Text="Push Notifications" VerticalOptions="Center" FontAttributes="Bold" TextColor="#1B3139"/>
+                        <Switch Grid.Column="1" IsToggled="True" OnColor="{StaticResource MainColor}"/>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*, Auto">
+                        <Label Text="Turn Dark Theme" VerticalOptions="Center" FontAttributes="Bold" TextColor="#1B3139"/>
+                        <Switch Grid.Column="1" IsToggled="False" OnColor="{StaticResource MainColor}"/>
+                    </Grid>
+
+                    <Button Text="Update Profile" 
+                        BackgroundColor="{StaticResource MainColor}" 
+                        TextColor="White" 
+                        CornerRadius="25" 
+                        HeightRequest="55" 
+                        FontSize="18" 
+                        FontAttributes="Bold"
+                        Margin="0,20,0,20"
+                        Clicked="updateprofile"/>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Frame>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.DeleteFingerPrint"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource MainColor}"
+             Title="DeleteFingerPrint">
+    <Grid VerticalOptions="CenterAndExpand" HorizontalOptions="Center">
+        <VerticalStackLayout Spacing="30" HorizontalOptions="Center" VerticalOptions="Center">
+
+            <Grid HeightRequest="150" WidthRequest="150" HorizontalOptions="Center">
+                <Border Stroke="{StaticResource White}"
+                  StrokeThickness="6"
+                  HeightRequest="150"
+                  WidthRequest="150"
+                  StrokeShape="RoundRectangle 75"
+                  BackgroundColor="{StaticResource transparent}" />
+
+                <Ellipse Fill="{StaticResource White}"
+                   HeightRequest="18"
+                   WidthRequest="18"
+                   HorizontalOptions="Center"
+                   VerticalOptions="Center"
+                   Margin="-50,0,0,0" />
+            </Grid>
+
+            <VerticalStackLayout Spacing="5">
+                <Label Text="The Fingerprint Has Been" 
+                 TextColor="{StaticResource White}" 
+                 FontSize="22" 
+                 FontAttributes="Bold"
+                 HorizontalTextAlignment="Center"/>
+
+                <Label Text="Successfully Deleted" 
+                 TextColor="{StaticResource White}" 
+                 FontSize="22" 
+                 FontAttributes="Bold"
+                 HorizontalTextAlignment="Center"/>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </Grid>
+</ContentPage>

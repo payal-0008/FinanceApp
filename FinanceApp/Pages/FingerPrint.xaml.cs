@@ -1,0 +1,26 @@
+namespace FinanceApp.Pages;
+
+public partial class FingerPrint : ContentPage
+{
+	public FingerPrint()
+	{
+		InitializeComponent();
+	}
+
+    private async void Back(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
+    private async void notification(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Notification());
+    }
+    private async void OnChangePrintClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new JohnPrint());
+    }
+    private async void OnChangeFingerClicked(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new AddFingerPrint());
+    }
+}

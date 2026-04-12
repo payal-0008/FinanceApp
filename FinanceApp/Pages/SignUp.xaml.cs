@@ -22,10 +22,11 @@ public partial class SignUp : ContentPage
 
     try 
     {
-        MainThread.BeginInvokeOnMainThread(() =>
+        MainThread.BeginInvokeOnMainThread(async ( ) =>
+
         {
-            Application.Current.MainPage = new AppShell();
-});
+           await Navigation.PushAsync(new Login());
+        });
     }
     catch (Exception ex)
     {

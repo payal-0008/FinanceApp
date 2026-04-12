@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.ChangePin"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource MainColor}"
+             Title="ChangePin">
+    <Grid RowDefinitions="Auto,*">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
+            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Back"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Grid.Column="1" Text="Change Pin" FontSize="22" FontAttributes="Bold" 
+                 TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="notification"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Border>
+        </Grid>
+
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" HasShadow="False" Margin="0,20,0,-20">
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto">
+                <Grid Grid.Row="0" RowDefinitions="Auto,Auto" RowSpacing="8" Margin="10,40,0,0">
+                    <Label Text="Current Pin" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+
+                    <Frame Grid.Row="1" Padding="20,0,20,0" 
+                     BorderColor="{StaticResource EntryBG}" 
+                     BackgroundColor="{StaticResource EntryBG}"
+                     CornerRadius="30">
+
+                        <Entry Placeholder="1234"
+                        PlaceholderColor="{StaticResource Gray400}"
+                         Keyboard="Password"
+                         TextColor="{StaticResource Black}"/>
+                    </Frame>
+                </Grid>
+                <Grid Grid.Row="1" RowDefinitions="Auto,Auto" RowSpacing="8" Margin="10,40,0,0">
+                    <Label Text="New Pin" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+
+                    <Frame Grid.Row="1" Padding="20,0,20,0" 
+                      BorderColor="{StaticResource EntryBG}" 
+                      BackgroundColor="{StaticResource EntryBG}"
+                      CornerRadius="30">
+
+                        <Entry Placeholder="1234"
+                        PlaceholderColor="{StaticResource Gray400}"
+                         Keyboard="Password"
+                        TextColor="{StaticResource Black}"/>
+                    </Frame>
+                </Grid>
+                <Grid Grid.Row="2" RowDefinitions="Auto,Auto" RowSpacing="8" Margin="10,40,0,0">
+                    <Label Text="Confirm Pin" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+
+                    <Frame Grid.Row="1" Padding="20,0,20,0" 
+                      BorderColor="{StaticResource EntryBG}" 
+                      BackgroundColor="{StaticResource EntryBG}"
+                      CornerRadius="30">
+
+                        <Entry Placeholder="1234"
+                        PlaceholderColor="{StaticResource Gray400}"
+                         Keyboard="Password"
+                        TextColor="{StaticResource Black}"/>
+                    </Frame>
+                </Grid>
+                <Button Grid.Row="3"
+                  Text="Change Pin"
+                  BackgroundColor="{StaticResource MainColor}"
+                  CornerRadius="20"
+                  Padding="58,0"
+                  Margin="0,80,0,0"
+                  TextColor="{StaticResource IconColor}"
+                  FontAttributes="Bold"
+                  FontSize="18"
+                  HorizontalOptions="Center"
+                  Clicked="ChngePin"/>
+            </Grid>
+
+        </Frame>
+    </Grid>
+</ContentPage>

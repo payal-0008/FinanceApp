@@ -5,7 +5,7 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource MainColor}"
              Title="Notification">
-    <Grid RowDefinitions="Auto,*">
+    <!--<Grid RowDefinitions="Auto,*">
         <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
             <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
                 <Image.GestureRecognizers>
@@ -104,5 +104,91 @@
                 </VerticalStackLayout>
             </ScrollView>
         </Border>
+    </Grid>-->
+
+
+    <Grid RowDefinitions="Auto,*" Padding="0,20,0,0" RowSpacing="10">
+
+        <!-- HEADER -->
+        <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" Padding="20,0">
+
+            <!-- Back -->
+            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Back"/>
+                </Image.GestureRecognizers>
+            </Image>
+
+            <!-- Title -->
+            <Label Grid.Column="1"
+                   Text="Notifications"
+                   FontSize="20"
+                   FontAttributes="Bold"
+                   VerticalTextAlignment="Center"
+                   HorizontalTextAlignment="Center"
+                   TextColor="{StaticResource Black}"/>
+
+            <!-- Bell -->
+            <Frame Grid.Column="2"
+                   CornerRadius="100"
+                   Padding="10"
+                   BackgroundColor="{StaticResource White}"
+                   VerticalOptions="Center">
+                <Image Source="bell.png"
+                       HeightRequest="20"
+                       WidthRequest="20"/>
+            </Frame>
+
+        </Grid>
+        <Frame Grid.Row="1" CornerRadius="30" Padding="20" BackgroundColor="{StaticResource White}" Margin="0,20,0,-40">
+
+            <CollectionView ItemsSource="{Binding NotificationList }"
+                            SelectionMode="None">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+
+                        <Frame Padding="12" Margin="5" CornerRadius="15">
+
+                            <Grid ColumnDefinitions="50,*,Auto" ColumnSpacing="10">
+                                <Image Source="{Binding Image}"
+                                       HeightRequest="30"
+                                       WidthRequest="30"
+                                       VerticalOptions="Start"/>
+
+                                <VerticalStackLayout Grid.Column="1" Spacing="2">
+
+                                    <Label Text="{Binding Title}"
+                                           FontSize="15"
+                                           FontAttributes="Bold"
+                                           TextColor="{StaticResource Black}"/>
+
+                                    <Label Text="{Binding SubTitle}"
+                                           FontSize="12"
+                                           TextColor="{StaticResource Gray400}"/>
+
+                                    <Label Text="{Binding Item}"
+                                           FontSize="11"
+                                           TextColor="{StaticResource Blue}"/>
+
+                                </VerticalStackLayout>
+
+                                <Label Grid.Column="2"
+                                       Text="{Binding Date}"
+                                       FontSize="11"
+                                       VerticalOptions="End"
+                                       TextColor="{StaticResource Blue}"/>
+
+                            </Grid>
+
+                        </Frame>
+
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+            </CollectionView>
+
+        </Frame>
+
     </Grid>
 </ContentPage>

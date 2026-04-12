@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.Security"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource MainColor}"
+             Title="Security">
+    <Grid RowDefinitions="Auto,*">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
+            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Back"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Grid.Column="1" Text="Security" FontSize="22" FontAttributes="Bold" 
+        TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="notification"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Border>
+        </Grid>
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-40">
+            
+            <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto">
+                <Label Text="Security"  FontSize="22" FontAttributes="Bold" Grid.Row="0" TextColor="{StaticResource Black}" Margin="30,30,0,0"/>
+                <Grid Grid.Row="1" RowDefinitions="Auto,Auto,Auto">
+                    <Grid Grid.Row="0" ColumnDefinitions="Auto,*">
+                        <Label Grid.Column="0" Text="Change Pin" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center" Margin="20,35,0,0" FontAttributes="Bold"/>
+                        <Image Grid.Column="1" Source="right_arrow.png" 
+                               HeightRequest="20" VerticalOptions="Center" HorizontalOptions="End" Margin="0,20,20,0"/>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnChangePasswordClicked"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </Grid>
+                <BoxView Grid.Row="2" HeightRequest="1" Margin="20,20,20,0" Color="{StaticResource Gray100}"/>
+                <Grid Grid.Row="3" RowDefinitions="Auto,Auto,Auto">
+                    <Grid Grid.Row="0" ColumnDefinitions="Auto,*">
+                        <Label Grid.Column="0" Text="Fingerprint" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center" Margin="20,20,0,0"  FontAttributes="Bold"/>
+                        <Image Grid.Column="1" Source="right_arrow.png" 
+                               HeightRequest="20" VerticalOptions="Center" HorizontalOptions="End" Margin="0,20,20,0"/>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnChangeFingerClicked"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </Grid>
+                <BoxView Grid.Row="4" HeightRequest="1" Margin="20,20,20,0" Color="{StaticResource Gray100}"/>
+
+                <Grid Grid.Row="5" RowDefinitions="Auto,Auto,Auto" VerticalOptions="Center">
+                    <Grid Grid.Row="0" ColumnDefinitions="Auto,*">
+                        <Label Grid.Column="0" Text="Terms And Conditions" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center" Margin="20,20,0,0" FontAttributes="Bold"/>
+                        <Image Grid.Column="1" Source="right_arrow.png" 
+                               HeightRequest="20" VerticalOptions="Center" HorizontalOptions="End" Margin="0,20,20,0"/>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTermsClicked"/>
+                        </Grid.GestureRecognizers>
+                    </Grid>
+                </Grid>
+
+               
+            </Grid>
+          
+        </Frame>
+    </Grid>
+</ContentPage>

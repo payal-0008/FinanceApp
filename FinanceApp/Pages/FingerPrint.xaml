@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.FingerPrint"
+              Shell.NavBarIsVisible="False"
+ BackgroundColor="{StaticResource MainColor}"
+             Title="FingerPrint">
+    <Grid RowDefinitions="Auto,*">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
+            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Back"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Grid.Column="1" Text="Fingerprint" FontSize="22" FontAttributes="Bold" 
+                 TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="notification"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Border>
+        </Grid>
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-40">
+
+            <Grid RowDefinitions="Auto,Auto" Padding="20" RowSpacing="20">
+
+                <Grid Grid.Row="0" ColumnDefinitions="60, *, Auto">
+                    <Border Grid.Column="0" 
+                        HeightRequest="50" 
+                        WidthRequest="50" 
+                        BackgroundColor="{StaticResource MainColor}" 
+                        StrokeShape="RoundRectangle 20"
+                        StrokeThickness="0">
+                        <Image Source="fingerprint.png" 
+                             HeightRequest="28" 
+                             HorizontalOptions="Center" 
+                             VerticalOptions="Center"/>
+                    </Border>
+
+                    <Label Grid.Column="1" 
+                       Text="John Fingerprint" 
+                       FontSize="18" 
+                       FontAttributes="Bold"
+                       TextColor="{StaticResource Black}" 
+                       VerticalOptions="Center" 
+                       Margin="15,0,0,0"/>
+
+                    <Image Grid.Column="2" 
+                         Source="right_arrow.png" 
+                         HeightRequest="20" 
+                         VerticalOptions="Center"
+                         Margin="0,0,10,0"/>
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnChangePrintClicked"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+
+                <Grid Grid.Row="1" ColumnDefinitions="60, *, Auto">
+                    <Border Grid.Column="0" 
+                        HeightRequest="50" 
+                        WidthRequest="50" 
+                        BackgroundColor="{StaticResource MainColor}" 
+                        StrokeShape="RoundRectangle 20"
+                        StrokeThickness="0">
+                        <Image Source="plus.png" 
+                            HeightRequest="27" 
+                            HorizontalOptions="Center" 
+                            VerticalOptions="Center"/>
+                    </Border>
+
+                    <Label Grid.Column="1" 
+                         Text="Add A Fingerprint" 
+                         FontSize="18" 
+                         FontAttributes="Bold"
+                         TextColor="{StaticResource Black}" 
+                         VerticalOptions="Center" 
+                         Margin="15,0,0,0"/>
+
+                    <Image Grid.Column="2" 
+                         Source="right_arrow.png" 
+                         HeightRequest="20" 
+                         VerticalOptions="Center"
+                           Margin="0,0,10,0"/>
+
+                    <Grid.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="OnChangeFingerClicked"/>
+                    </Grid.GestureRecognizers>
+                </Grid>
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>
