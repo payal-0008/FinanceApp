@@ -92,9 +92,9 @@
                                 <Image Source="aeroplanes.png" HeightRequest="65" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </Border>
                             <Label Text="Travel" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                            <!--<VerticalStackLayout.GestureRecognizers>
+                            <VerticalStackLayout.GestureRecognizers>
                                 <TapGestureRecognizer Tapped="OnTravelClick"/>
-                            </VerticalStackLayout.GestureRecognizers>-->
+                            </VerticalStackLayout.GestureRecognizers>
                         </VerticalStackLayout>
 
                         <VerticalStackLayout Grid.Row="0" Grid.Column="1" Spacing="8">
@@ -102,9 +102,9 @@
                                 <Image Source="home.png" HeightRequest="45" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </Border>
                             <Label Text="New House" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                            <!--<VerticalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnTransportClick"/>
-                            </VerticalStackLayout.GestureRecognizers>-->
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnHouseClick"/>
+                            </VerticalStackLayout.GestureRecognizers>
                         </VerticalStackLayout>
 
                         <VerticalStackLayout Grid.Row="0" Grid.Column="2" Spacing="8">
@@ -113,9 +113,9 @@
                             </Border>
                             <Label Text="Car" HorizontalOptions="Center" 
                                   FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                            <!--<VerticalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnMedicineClick"/>
-                            </VerticalStackLayout.GestureRecognizers>-->
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnCarClick"/>
+                            </VerticalStackLayout.GestureRecognizers>
                         </VerticalStackLayout>
 
                         <VerticalStackLayout Grid.Row="1" Grid.Column="0" Spacing="8">
@@ -124,9 +124,9 @@
                             </Border>
                             <Label Text="Weddings" HorizontalOptions="Center" 
                                 FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                            <!--<VerticalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnGroceryClick"/>
-                            </VerticalStackLayout.GestureRecognizers>-->
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnWeddingClick"/>
+                            </VerticalStackLayout.GestureRecognizers>
                         </VerticalStackLayout>
                         </Grid>
                 </VerticalStackLayout>

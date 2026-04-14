@@ -12,4 +12,5 @@
     <Color x:Key="Blue">#0068FF</Color>
     <Color x:Key="Black">#052224</Color> 
     <Color x:Key="transparent">Transparent</Color>
+    <Color x:Key="lightblue">#4D8CFF</Color>
 </ResourceDictionary>

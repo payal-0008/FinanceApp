@@ -14,4 +14,20 @@ public partial class Savings : ContentPage
     {
         await Navigation.PushAsync(new Notification());
     }
+    private async void OnTravelClick(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Travel());
+    }
+    private async void OnHouseClick(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new NewHouse());
+    }
+    private async void OnCarClick(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Car());
+    }
+    private async void OnWeddingClick(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Wedding());
+    }
 }
