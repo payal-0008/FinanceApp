@@ -3,7 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinanceApp.Pages.FingerPrint"
               Shell.NavBarIsVisible="False"
- BackgroundColor="{StaticResource MainColor}"
+             BackgroundColor="{StaticResource MainColor}"
              Title="FingerPrint">
     <Grid RowDefinitions="Auto,*">
         <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
@@ -22,7 +22,7 @@
                 </Image>
             </Border>
         </Grid>
-        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-40">
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-70">
 
             <Grid RowDefinitions="Auto,Auto" Padding="20" RowSpacing="20">
 

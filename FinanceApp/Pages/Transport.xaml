@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.Transport"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource MainColor}"
+             Title="Transport">
+    <Grid RowDefinitions="Auto,*">
+        <Grid RowDefinitions="Auto, Auto, Auto, Auto" Padding="25">
+            <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10,20,0">
+                <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Back"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Column="1" Text="Transport" FontSize="22" FontAttributes="Bold" 
+                       TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                    <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="notification"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="1" ColumnDefinitions="*, 2, *" Margin="0,25,0,0">
+                <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
+                    <HorizontalStackLayout>
+                        <Image Source="up.png" HeightRequest="15" WidthRequest="15"/>
+                        <Label Text="Total Balance" FontSize="15" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                    </HorizontalStackLayout>
+                    <Label Text="$7,783.00" FontSize="26" FontAttributes="Bold" TextColor="{StaticResource White}"/>
+                </VerticalStackLayout>
+
+                <BoxView Grid.Column="1" WidthRequest="1" BackgroundColor="{StaticResource White}" Margin="0,10"/>
+
+                <VerticalStackLayout Grid.Column="2" Spacing="5" HorizontalOptions="Center">
+                    <HorizontalStackLayout Spacing="2">
+                        <Image Source="down_arrows.png" HeightRequest="9" WidthRequest="9"/>
+                        <Label Text="Total Expense" FontSize="15" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                    </HorizontalStackLayout>
+                    <Label Text="-$1.187.40" FontSize="26" FontAttributes="Bold" TextColor="{StaticResource Blue}"/>
+                </VerticalStackLayout>
+            </Grid>
+
+            <Grid Grid.Row="2" Margin="20,25,20,10">
+                <Border HeightRequest="40" StrokeShape="RoundRectangle 20" StrokeThickness="0" BackgroundColor="{StaticResource White}">
+                    <Label Text="$20,000.00" 
+                        TextColor="{StaticResource Black}" 
+                        FontSize="14" 
+                        FontAttributes="Bold"
+                        HorizontalOptions="End" 
+                        VerticalOptions="Center" 
+                        Margin="0,0,20,0"/>
+                </Border>
+
+                <Border HorizontalOptions="Start" 
+                    WidthRequest="100" 
+                    HeightRequest="40" 
+                    StrokeShape="RoundRectangle 20" 
+                    StrokeThickness="0" 
+                    BackgroundColor="{StaticResource Black}">
+                    <Label Text="30%" 
+                       TextColor="{StaticResource White}" 
+                       HorizontalOptions="Center" 
+                       VerticalOptions="Center" 
+                       FontAttributes="Bold"/>
+                </Border>
+            </Grid>
+
+            <HorizontalStackLayout Grid.Row="3" Spacing="10" VerticalOptions="Center" HorizontalOptions="Center">
+                <Image Source="check_icon.png" HeightRequest="18" WidthRequest="18"/>
+                <Label Text="30% Of Your Expenses, Looks Good." 
+                    TextColor="{StaticResource Black}" 
+                    FontSize="15"/>
+            </HorizontalStackLayout>
+        </Grid>
+        
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,0,0,-70">
+            <Grid RowDefinitions="*, Auto">
+
+                <ScrollView Grid.Row="0">
+                    <VerticalStackLayout Padding="20" Spacing="20">
+
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Label Text="March" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource IconColor}"/>
+                            <Border Grid.Column="1" StrokeShape="RoundRectangle 10" BackgroundColor="{StaticResource MainColor}" HeightRequest="35" WidthRequest="35">
+                                <Image Source="calendar.png" HeightRequest="20" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                        </Grid>
+
+                        <VerticalStackLayout Spacing="18">
+                            <Grid ColumnDefinitions="60, *, Auto" ColumnSpacing="15">
+                                <Border StrokeShape="RoundRectangle 20" BackgroundColor="{StaticResource MainColor}" HeightRequest="60" WidthRequest="60">
+                                    <Image Source="car.png" HeightRequest="65" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Border>
+                                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                                    <Label Text="Fuel" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource IconColor}"/>
+                                    <Label Text="18:27 - March 30" FontSize="12" TextColor="{StaticResource Blue}"/>
+                                </VerticalStackLayout>
+                                <Label Grid.Column="2" Text="-$3.53" VerticalOptions="Center" FontAttributes="Bold" TextColor="{StaticResource Blue}"/>
+                            </Grid>
+
+                            <Grid ColumnDefinitions="60, *, Auto" ColumnSpacing="15">
+                                <Border StrokeShape="RoundRectangle 20" BackgroundColor="{StaticResource MainColor}" HeightRequest="60" WidthRequest="60">
+                                    <Image Source="car.png" HeightRequest="65" HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Border>
+                                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                                    <Label Text="Car Parts" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource IconColor}"/>
+                                    <Label Text="15:00 - March 30" FontSize="12" TextColor="{StaticResource Blue}"/>
+                                </VerticalStackLayout>
+                                <Label Grid.Column="2" Text="-$26.75" VerticalOptions="Center" FontAttributes="Bold" TextColor="{StaticResource Blue}"/>
+                            </Grid>
+                        </VerticalStackLayout>
+
+                        <Label Text="February" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource IconColor}" Margin="0,10,0,0"/>
+
+                        <Grid ColumnDefinitions="60, *, Auto" ColumnSpacing="15">
+                            <Border StrokeShape="RoundRectangle 20" BackgroundColor="{StaticResource MainColor}" HeightRequest="60" WidthRequest="60">
+                                <Image Source="car.png" HeightRequest="65" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="New Tires" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource IconColor}"/>
+                                <Label Text="20:50 - February 10" FontSize="12" TextColor="{StaticResource Blue}"/>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="2" Text="-$373.99" VerticalOptions="Center" FontAttributes="Bold" TextColor="{StaticResource Blue}"/>
+                        </Grid>
+                        <Grid ColumnDefinitions="60, *, Auto" ColumnSpacing="15">
+                            <Border StrokeShape="RoundRectangle 20" BackgroundColor="{StaticResource MainColor}" HeightRequest="60" WidthRequest="60">
+                                <Image Source="car.png" HeightRequest="65" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="Car Wash" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource IconColor}"/>
+                                <Label Text="09:30 - February 9" FontSize="12" TextColor="{StaticResource Blue}"/>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="2" Text="-$9,74" VerticalOptions="Center" FontAttributes="Bold" TextColor="{StaticResource Blue}"/>
+                        </Grid>
+                        <Grid ColumnDefinitions="60, *, Auto" ColumnSpacing="15">
+                            <Border StrokeShape="RoundRectangle 20" BackgroundColor="{StaticResource MainColor}" HeightRequest="60" WidthRequest="60">
+                                <Image Source="car.png" HeightRequest="65" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
+                                <Label Text="Public Transport" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource IconColor}"/>
+                                <Label Text="07:50 - February 2" FontSize="12" TextColor="{StaticResource Blue}"/>
+                            </VerticalStackLayout>
+                            <Label Grid.Column="2" Text="-$1,24" VerticalOptions="Center" FontAttributes="Bold" TextColor="{StaticResource Blue}"/>
+                        </Grid>
+
+                    </VerticalStackLayout>
+                </ScrollView>
+
+                <Button Grid.Row="1" 
+                    Text="Add Expenses" 
+                    BackgroundColor="{StaticResource MainColor}" 
+                    TextColor="{StaticResource Black}" 
+                    CornerRadius="25" 
+                    HeightRequest="55" 
+                    FontAttributes="Bold"
+                    Margin="40,0,40,80"
+                    Clicked="OnAddExpensesClick"/>
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>

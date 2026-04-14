@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.NotificationSetting"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource MainColor}"
+             Title="NotificationSetting">
+    <Grid RowDefinitions="Auto,*">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
+            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Back"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Grid.Column="1" Text="Notification Settings" FontSize="22" FontAttributes="Bold" 
+            TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="notification"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Border>
+        </Grid>
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-70">
+            <ScrollView>
+                <VerticalStackLayout Spacing="5" Padding="10,20,10,40">
+
+                    <Grid ColumnDefinitions="*, Auto" Padding="15">
+                        <Label Text="General Notification" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center" FontAttributes="Bold"/>
+                        <Switch Grid.Column="1" IsToggled="True" OnColor="{StaticResource MainColor}" ThumbColor="{StaticResource White}" OffColor="{StaticResource EntryBG}"/>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*, Auto" Padding="15">
+                        <Label Text="Sound" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center" FontAttributes="Bold"/>
+                        <Switch Grid.Column="1" IsToggled="True" OnColor="{StaticResource MainColor}" ThumbColor="{StaticResource White}" OffColor="{StaticResource EntryBG}"/>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*, Auto" Padding="15">
+                        <Label Text="Sound Call" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center" FontAttributes="Bold"/>
+                            <Switch Grid.Column="1" IsToggled="True" OnColor="{StaticResource MainColor}" ThumbColor="{StaticResource White}" OffColor="{StaticResource EntryBG}"/>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*, Auto" Padding="15">
+                        <Label Text="Vibrate" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center" FontAttributes="Bold"/>
+                                <Switch Grid.Column="1" IsToggled="True" OnColor="{StaticResource MainColor}" ThumbColor="{StaticResource White}" OffColor="{StaticResource EntryBG}"/>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*, Auto" Padding="15">
+                        <Label Text="Transaction Update" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center" FontAttributes="Bold"/>
+                        <Switch Grid.Column="1" IsToggled="False" OnColor="{StaticResource MainColor}" ThumbColor="{StaticResource White}" OffColor="{StaticResource EntryBG}"/>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*, Auto" Padding="15">
+                        <Label Text="Expense Reminder" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center" FontAttributes="Bold"/>
+                        <Switch Grid.Column="1" IsToggled="False" OnColor="{StaticResource MainColor}" ThumbColor="{StaticResource White}" OffColor="{StaticResource EntryBG}"/>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*, Auto" Padding="15">
+                        <Label Text="Budget Notifications" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center" FontAttributes="Bold"/>
+                            <Switch Grid.Column="1" IsToggled="False" OnColor="{StaticResource MainColor}" ThumbColor="{StaticResource White}" OffColor="{StaticResource EntryBG}"/>
+                    </Grid>
+
+                    <Grid ColumnDefinitions="*, Auto" Padding="15">
+                        <Label Text="Low Balance Alerts" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center" FontAttributes="Bold"/>
+                                <Switch Grid.Column="1" IsToggled="False" OnColor="{StaticResource MainColor}" ThumbColor="{StaticResource White}" OffColor="{StaticResource EntryBG}"/>
+                    </Grid>
+
+                </VerticalStackLayout>
+            </ScrollView>
+        </Frame>
+    </Grid>
+</ContentPage>

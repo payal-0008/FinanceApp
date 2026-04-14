@@ -13,7 +13,7 @@
                 </Image.GestureRecognizers>
             </Image>
             <Label Grid.Column="1" Text="Security" FontSize="22" FontAttributes="Bold" 
-        TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                   TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
             <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
                 <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
                     <Image.GestureRecognizers>
@@ -22,7 +22,7 @@
                 </Image>
             </Border>
         </Grid>
-        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-40">
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-70">
             
             <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,Auto,Auto">
                 <Label Text="Security"  FontSize="22" FontAttributes="Bold" Grid.Row="0" TextColor="{StaticResource Black}" Margin="30,30,0,0"/>

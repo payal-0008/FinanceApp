@@ -23,7 +23,7 @@
             </Border>
         </Grid>
 
-        <Frame Grid.Row="1" CornerRadius="40" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-40" HasShadow="False">
+        <Frame Grid.Row="1" CornerRadius="40" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-70" HasShadow="False">
             <ScrollView>
                 <VerticalStackLayout Spacing="10" Padding="20,0">
 
@@ -67,13 +67,13 @@
                     </VerticalStackLayout>
 
                     <Grid ColumnDefinitions="*, Auto" Margin="0,10,0,0">
-                        <Label Text="Push Notifications" VerticalOptions="Center" FontAttributes="Bold" TextColor="#1B3139"/>
-                        <Switch Grid.Column="1" IsToggled="True" OnColor="{StaticResource MainColor}"/>
+                        <Label Text="Push Notifications" VerticalOptions="Center" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                        <Switch Grid.Column="1" IsToggled="True" OnColor="{StaticResource MainColor}" OffColor="{StaticResource EntryBG}"/>
                     </Grid>
 
                     <Grid ColumnDefinitions="*, Auto">
-                        <Label Text="Turn Dark Theme" VerticalOptions="Center" FontAttributes="Bold" TextColor="#1B3139"/>
-                        <Switch Grid.Column="1" IsToggled="False" OnColor="{StaticResource MainColor}"/>
+                            <Label Text="Turn Dark Theme" VerticalOptions="Center" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                            <Switch Grid.Column="1" IsToggled="False" OnColor="{StaticResource MainColor}" OffColor="{StaticResource EntryBG}"/>
                     </Grid>
 
                     <Button Text="Update Profile" 

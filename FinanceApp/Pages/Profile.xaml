@@ -22,7 +22,7 @@
                 </Image>
             </Border>
         </Grid>
-        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-40">
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-70">
             <VerticalStackLayout Spacing="10">
                 <Grid VerticalOptions="Start" ZIndex="2">
                     <Border HeightRequest="130" WidthRequest="130" 
@@ -65,9 +65,9 @@
                     </Grid>
 
                     <Grid ColumnDefinitions="Auto, *, Auto" ColumnSpacing="15" Padding="15">
-                        <!--<Grid.GestureRecognizers>
+                        <Grid.GestureRecognizers>
                             <TapGestureRecognizer Tapped="OnSettingClicked"/>
-                        </Grid.GestureRecognizers>-->
+                        </Grid.GestureRecognizers>
                         <Border Grid.Column="0" HeightRequest="55" WidthRequest="55" 
                             BackgroundColor="{StaticResource EntryBG}" StrokeThickness="0" StrokeShape="RoundRectangle 20">
                             <Image Source="setting.png" HeightRequest="30" WidthRequest="30" VerticalOptions="Center" HorizontalOptions="Center"/>
@@ -81,6 +81,9 @@
                             <Image Source="customer_support.png" HeightRequest="30" WidthRequest="30" VerticalOptions="Center" HorizontalOptions="Center"/>
                         </Border>
                         <Label Grid.Column="1" Text="Help" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center" FontAttributes="Bold"/>
+                        <Grid.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnHelpClicked"/>
+                        </Grid.GestureRecognizers>
                     </Grid>
 
                     <Grid ColumnDefinitions="Auto, *, Auto" ColumnSpacing="15" Padding="15">
@@ -88,7 +91,11 @@
                             BackgroundColor="{StaticResource EntryBG}" StrokeThickness="0" StrokeShape="RoundRectangle 20">
                             <Image Source="logout.png" HeightRequest="27" WidthRequest="27" VerticalOptions="Center" HorizontalOptions="Center"/>
                         </Border>
-                        <Label Grid.Column="1" Text="Logout" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center" FontAttributes="Bold"/>
+                        <Label Grid.Column="1" Text="Logout" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center" FontAttributes="Bold">
+                            <Label.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnLogOut"/>
+                            </Label.GestureRecognizers>
+                        </Label>
                     </Grid>
 
                 </VerticalStackLayout>

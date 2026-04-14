@@ -2,11 +2,191 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinanceApp.Pages.Category"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource MainColor}"
              Title="Category">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+    <Grid RowDefinitions="Auto,*">
+        <Grid RowDefinitions="Auto, Auto, Auto, Auto" Padding="25">
+            <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10,20,0">
+                <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Back"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Column="1" Text="Categories" FontSize="22" FontAttributes="Bold" 
+                        TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                    <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="notification"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Border>
+            </Grid>
+
+            <Grid Grid.Row="1" ColumnDefinitions="*, 2, *" Margin="0,25,0,0">
+            <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
+                <HorizontalStackLayout>
+                    <Image Source="up.png" HeightRequest="15" WidthRequest="15"/>
+                    <Label Text="Total Balance" FontSize="15" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                </HorizontalStackLayout>
+                <Label Text="$7,783.00" FontSize="26" FontAttributes="Bold" TextColor="{StaticResource White}"/>
+            </VerticalStackLayout>
+
+            <BoxView Grid.Column="1" WidthRequest="1" BackgroundColor="{StaticResource White}" Margin="0,10"/>
+
+            <VerticalStackLayout Grid.Column="2" Spacing="5" HorizontalOptions="Center">
+                <HorizontalStackLayout Spacing="2">
+                    <Image Source="down_arrows.png" HeightRequest="9" WidthRequest="9"/>
+                    <Label Text="Total Expense" FontSize="15" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                </HorizontalStackLayout>
+                <Label Text="-$1.187.40" FontSize="26" FontAttributes="Bold" TextColor="{StaticResource Blue}"/>
+            </VerticalStackLayout>
+        </Grid>
+
+        <Grid Grid.Row="2" Margin="20,25,20,10">
+            <Border HeightRequest="40" StrokeShape="RoundRectangle 20" StrokeThickness="0" BackgroundColor="{StaticResource White}">
+                <Label Text="$20,000.00" 
+               TextColor="{StaticResource Black}" 
+               FontSize="14" 
+               FontAttributes="Bold"
+               HorizontalOptions="End" 
+               VerticalOptions="Center" 
+               Margin="0,0,20,0"/>
+            </Border>
+
+            <Border HorizontalOptions="Start" 
+            WidthRequest="100" 
+            HeightRequest="40" 
+            StrokeShape="RoundRectangle 20" 
+            StrokeThickness="0" 
+            BackgroundColor="{StaticResource Black}">
+                <Label Text="30%" 
+               TextColor="{StaticResource White}" 
+               HorizontalOptions="Center" 
+               VerticalOptions="Center" 
+               FontAttributes="Bold"/>
+            </Border>
+        </Grid>
+
+        <HorizontalStackLayout Grid.Row="3" Spacing="10" VerticalOptions="Center" HorizontalOptions="Center">
+            <Image Source="check_icon.png" HeightRequest="18" WidthRequest="18"/>
+            <Label Text="30% Of Your Expenses, Looks Good." 
+           TextColor="{StaticResource Black}" 
+           FontSize="15"/>
+        </HorizontalStackLayout>
+    </Grid>
+
+
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,0,0,-70">
+            <ScrollView>
+                <VerticalStackLayout Padding="25,30,25,0">
+
+                    <Grid ColumnDefinitions="*,*,*" 
+                          RowDefinitions="Auto,Auto,Auto" 
+                          ColumnSpacing="15" 
+                          RowSpacing="25">
+
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="0" Spacing="8">
+                            <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
+                                <Image Source="food.png" HeightRequest="55" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Food" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnFoodClick"/>
+                            </VerticalStackLayout.GestureRecognizers>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="1" Spacing="8">
+                            <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
+                                <Image Source="car.png" HeightRequest="85" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Transport" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnTransportClick"/>
+                            </VerticalStackLayout.GestureRecognizers>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="0" Grid.Column="2" Spacing="8">
+                            <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
+                                <Image Source="medicine.png" HeightRequest="45" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Medicine" HorizontalOptions="Center" 
+                                   FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnMedicineClick"/>
+                            </VerticalStackLayout.GestureRecognizers>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="1" Grid.Column="0" Spacing="8">
+                            <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
+                                <Image Source="grocery.png" HeightRequest="45" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Groceries" HorizontalOptions="Center" 
+                                   FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnGroceryClick"/>
+                            </VerticalStackLayout.GestureRecognizers>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="1" Grid.Column="1" Spacing="8">
+                            <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
+                                <Image Source="house_key.png" HeightRequest="45" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Rent" HorizontalOptions="Center" 
+                                   FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnRentClick"/>
+                            </VerticalStackLayout.GestureRecognizers>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="1" Grid.Column="2" Spacing="8">
+                            <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
+                                <Image Source="gift.png" HeightRequest="45" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Gifts" HorizontalOptions="Center" 
+                                   FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnGiftsClick"/>
+                            </VerticalStackLayout.GestureRecognizers>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="2" Grid.Column="0" Spacing="8">
+                            <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
+                                <Image Source="money.png" HeightRequest="55" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Savings" HorizontalOptions="Center" 
+                                   FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnSavingClick"/>
+                            </VerticalStackLayout.GestureRecognizers>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="2" Grid.Column="1" Spacing="8">
+                            <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
+                                <Image Source="video.png" HeightRequest="45" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="Entertainment" HorizontalOptions="Center" 
+                                   FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnEntertainmentClick"/>
+                            </VerticalStackLayout.GestureRecognizers>
+                        </VerticalStackLayout>
+
+                        <VerticalStackLayout Grid.Row="2" Grid.Column="2" Spacing="8">
+                            <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
+                                <Image Source="sum.png" HeightRequest="45" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            </Border>
+                            <Label Text="More" HorizontalOptions="Center" 
+                                   FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                            <VerticalStackLayout.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="OnMoreClick"/>
+                            </VerticalStackLayout.GestureRecognizers>
+                        </VerticalStackLayout>
+
+                    </Grid>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Frame>
+    </Grid>
 </ContentPage>

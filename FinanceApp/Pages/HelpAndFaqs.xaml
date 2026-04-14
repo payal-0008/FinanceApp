@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.HelpAndFaqs"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource MainColor}"
+             Title="HelpAndFaqs">
+    <Grid RowDefinitions="Auto,*">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
+            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Back"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Grid.Column="1" Text="Help And FAQS" FontSize="22" FontAttributes="Bold" 
+               TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="notification"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Border>
+        </Grid>
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,30,0,-70">
+
+            <Grid RowDefinitions="Auto, *">
+
+                <VerticalStackLayout Grid.Row="0" Spacing="20" Padding="10,20,10,10">
+
+                    <Label Text="How Can We Help You?" 
+                       FontSize="18" 
+                       FontAttributes="Bold" 
+                       TextColor="{StaticResource Black}" 
+                       HorizontalOptions="Center"/>
+
+                    <Border BackgroundColor="{StaticResource EntryBG}" StrokeShape="RoundRectangle 20" StrokeThickness="0" HeightRequest="60">
+                        <Grid ColumnDefinitions="*, *">
+                            <Button  x:Name="BtnFaq" Grid.Column="0" Text="FAQ" BackgroundColor="{StaticResource MainColor}" TextColor="{StaticResource Black}" CornerRadius="20" Margin="5" FontAttributes="Bold" FontSize="16" Clicked="OnFaqTabClicked"/>
+                            <Button  x:Name="BtnContact" Grid.Column="1" Text="Contact Us" BackgroundColor="{StaticResource transparent}" TextColor="{StaticResource Black}" FontAttributes="Bold" FontSize="16" Clicked="OnContactTabClicked"/>
+                        </Grid>
+                    </Border>
+
+                    <Border BackgroundColor="{StaticResource EntryBG}" StrokeShape="RoundRectangle 15" StrokeThickness="0" Padding="15">
+                        <Grid ColumnDefinitions="*, *, *">
+                            <Label Grid.Column="0" Text="General" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                            <Label Grid.Column="1" Text="Account" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                            <Label Grid.Column="2" Text="Services" HorizontalOptions="Center" VerticalOptions="Center" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                        </Grid>
+                    </Border>
+
+                    <Border Stroke="{StaticResource MainColor}" StrokeThickness="1" StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource EntryBG}" Padding="15,5">
+                        <Grid ColumnDefinitions="Auto, *">
+                            <Image Source="search_icon.png" HeightRequest="20" Margin="0,0,10,0"/>
+                            <Entry Grid.Column="1" Placeholder="Search" PlaceholderColor="{StaticResource Gray400}" TextColor="{StaticResource Black         }" VerticalOptions="Center"/>
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+       
+                <CollectionView Grid.Row="1" x:Name="FAQCollection" IsVisible="{Binding IsFaqMode}" Margin="0,20,0,0">
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <VerticalStackLayout Padding="15,5,15,20">
+                                <Grid ColumnDefinitions="*, Auto">
+                                    <Label Text="{Binding Question}" FontAttributes="Bold" TextColor="{StaticResource Black}" VerticalOptions="Center"/>
+                                    <Image Grid.Column="1" Source="down_arrow.png" HeightRequest="12"/>
+                                    <Grid.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnFAQClicked"/>
+                                    </Grid.GestureRecognizers>
+                                </Grid>
+                                <Label Text="{Binding Answer}" IsVisible="{Binding IsVisible}" TextColor="{StaticResource Gray400}" Padding="0,10,0,0"/>
+                                <BoxView HeightRequest="1" Color="{StaticResource Gray100}" Margin="0,10,0,0"/>
+                            </VerticalStackLayout>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <ScrollView Grid.Row="1" IsVisible="{Binding IsContactMode}" Padding="20">
+                    <VerticalStackLayout Spacing="35">
+                            <Grid ColumnDefinitions="Auto, *, Auto">
+                                <Image Source="customer_support.png" HeightRequest="25" Grid.Column="0"/>
+                            <Label Text="Customer Service" Grid.Column="1" VerticalOptions="Center" 
+                                       Margin="15,0" FontAttributes="Bold" 
+                                       TextColor="{StaticResource Black}"/>
+                            <Image Source="right_arrow.png" HeightRequest="15" Grid.Column="2"/>
+                            <Grid.GestureRecognizers>
+                                <TapGestureRecognizer Tapped="Oncustomer"/>
+                            </Grid.GestureRecognizers>
+                        </Grid>
+                      
+                            <Grid ColumnDefinitions="Auto, *, Auto">
+                                <Image Source="globe.png" HeightRequest="25" Grid.Column="0"/>
+                                <Label Text="Website" Grid.Column="1" VerticalOptions="Center" Margin="15,0" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                                <Image Source="right_arrow.png" HeightRequest="15" Grid.Column="2"/>
+                            </Grid>
+                      
+                            <Grid ColumnDefinitions="Auto, *, Auto">
+                                <Image Source="fb.png" HeightRequest="25" Grid.Column="0"/>
+                                <Label Text="Facebook" Grid.Column="1" VerticalOptions="Center" Margin="15,0" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                                <Image Source="right_arrow.png" HeightRequest="15" Grid.Column="2"/>
+                            </Grid>
+                      
+                            <Grid ColumnDefinitions="Auto, *, Auto">
+                                <Image Source="whatsapp.png" HeightRequest="25" Grid.Column="0"/>
+                                <Label Text="Whatsapp" Grid.Column="1" VerticalOptions="Center" Margin="15,0" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                                <Image Source="right_arrow.png" HeightRequest="15" Grid.Column="2"/>
+                            </Grid>
+   
+                        <Grid ColumnDefinitions="Auto, *, Auto">
+                            <Image Source="instagram.png" HeightRequest="25" Grid.Column="0"/>
+                            <Label Text="Instagram" Grid.Column="1" VerticalOptions="Center" Margin="15,0" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                            <Image Source="right_arrow.png" HeightRequest="15" Grid.Column="2"/>
+                        </Grid>
+                    </VerticalStackLayout>
+                </ScrollView>
+            </Grid>
+        </Frame>
+    </Grid>
+</ContentPage>

@@ -19,7 +19,7 @@
             </Border>
         </Grid>
 
-        <Frame Grid.Row="1" CornerRadius="60"  Margin="0,20,0,-30" HasShadow="False">
+        <Frame Grid.Row="1" CornerRadius="60"  Margin="0,20,0,-70" HasShadow="False">
             <VerticalStackLayout Spacing="30" VerticalOptions="Center" Padding="30">
 
                 <Grid HeightRequest="150" WidthRequest="150" HorizontalOptions="Center">

@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.DeleteAccount"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource MainColor}"
+             Title="DeleteAccount">
+    <Grid RowDefinitions="Auto,*">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
+            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Back"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Grid.Column="1" Text="Delete Account" FontSize="22" FontAttributes="Bold" 
+           TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="notification"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Border>
+        </Grid>
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-70">
+            <ScrollView>
+                <VerticalStackLayout Spacing="25" Padding="25,40,25,80">
+
+                    <Label Text="Are You Sure You Want To Delete Your Account?" 
+                   FontSize="18" 
+                   TextColor="{StaticResource Black}" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   HorizontalTextAlignment="Center"/>
+
+                    <Frame BackgroundColor="#E8F5E9" CornerRadius="15" Padding="20" HasShadow="False">
+                        <VerticalStackLayout Spacing="15">
+                            <Label Text="This action will permanently delete all of your data, and you will not be able to recover it. Please keep the following in mind before proceeding:" 
+                           TextColor="{StaticResource Black}" FontSize="14" FontAttributes="Bold"/>
+
+                            <VerticalStackLayout Spacing="8" Padding="10,0">
+                                <Label Text="• All your expenses, income and associated transactions will be eliminated." TextColor="{StaticResource Black}" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="• You will not be able to access your account or any related information." TextColor="{StaticResource Black}" FontSize="14" FontAttributes="Bold"/>
+                                <Label Text="• This action cannot be undone." TextColor="{StaticResource Black}" FontSize="14" FontAttributes="Bold"/>
+                            </VerticalStackLayout>
+                        </VerticalStackLayout>
+                    </Frame>
+
+                    <Label Text="Please Enter Your Password To Confirm Deletion Of Your Account." 
+                   FontSize="16" 
+                   TextColor="{StaticResource Black}" 
+                   FontAttributes="Bold" 
+                   HorizontalOptions="Center" 
+                   HorizontalTextAlignment="Center"
+                   Margin="0,15,0,0"/>
+
+                    <Frame BackgroundColor="#E8F5E9" CornerRadius="30" Padding="15,5" HasShadow="False" BorderColor="Transparent">
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Entry Grid.Column="0" 
+                           IsPassword="True" 
+                           Placeholder="••••••••••" 
+                           PlaceholderColor="{StaticResource Gray400}" 
+                           TextColor="{StaticResource Black}" 
+                           FontSize="18"
+                           VerticalOptions="Center"
+                           HorizontalOptions="Start"/>
+
+                        </Grid>
+                    </Frame>
+
+                    <VerticalStackLayout Spacing="10" Margin="0,30,0,0">
+                        <Button Text="Yes, Delete Account" 
+                        BackgroundColor="{StaticResource MainColor}" 
+                        TextColor="{StaticResource Black}" 
+                        CornerRadius="30" 
+                        HeightRequest="60" 
+                        FontSize="18" 
+                        FontAttributes="Bold"
+                        Clicked="OnDelete"/>
+
+                        <Button Text="Cancel" 
+                        BackgroundColor="{StaticResource EntryBG}" 
+                        TextColor="{StaticResource Black}" 
+                        CornerRadius="30" 
+                        HeightRequest="60" 
+                        FontSize="18" 
+                        FontAttributes="Bold"
+                       Clicked="OnCancel"/>
+                    </VerticalStackLayout>
+
+                </VerticalStackLayout>
+            </ScrollView>
+        </Frame>
+    </Grid>
+</ContentPage>

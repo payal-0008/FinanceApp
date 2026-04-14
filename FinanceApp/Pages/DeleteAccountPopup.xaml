@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<mopups:PopupPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:mopups="clr-namespace:Mopups.Pages;assembly=Mopups"
+             x:Class="FinanceApp.Pages.DeleteAccountPopup"
+             BackgroundColor="#80000000">
+    <Frame VerticalOptions="Center" 
+           HorizontalOptions="Center" 
+           Margin="30"
+           Padding="25"
+           CornerRadius="30" 
+           BackgroundColor="White" 
+           HasShadow="True"
+           WidthRequest="350">
+
+        <VerticalStackLayout Spacing="20" HorizontalOptions="Center">
+
+            <Label Text="Delete Account" 
+                   FontSize="22" 
+                   FontAttributes="Bold" 
+                   TextColor="{StaticResource Black}" 
+                   HorizontalOptions="Center"/>
+
+            <Label Text="Are You Sure You Want To Log Out?" 
+                   FontSize="16" 
+                   TextColor="{StaticResource Black}" 
+                   HorizontalOptions="Center"
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"/>
+
+            <Label Text="By deleting your account, you agree that you understand the consequences of this action and that you agree to permanently delete your account and all associated data." 
+                   FontSize="14" 
+                   TextColor="{StaticResource Gray500}" 
+                   FontAttributes="Bold"
+                   HorizontalTextAlignment="Center"
+                   LineHeight="1.2"/>
+
+            <VerticalStackLayout Spacing="12" Margin="0,10,0,0">
+                <Button Text="Yes, Delete Account" 
+                        BackgroundColor="{StaticResource MainColor}" 
+                        TextColor="{StaticResource Black}" 
+                        CornerRadius="30" 
+                        HeightRequest="55" 
+                        FontAttributes="Bold"
+                        Clicked="OnConfirmDeleteClicked"/>
+
+                <Button Text="Cancel" 
+                        BackgroundColor="{StaticResource EntryBG}" 
+                        TextColor="{StaticResource Black}" 
+                        CornerRadius="30" 
+                        HeightRequest="55" 
+                        FontAttributes="Bold"
+                        Clicked="OnCancelClicked"/>
+            </VerticalStackLayout>
+
+        </VerticalStackLayout>
+    </Frame>
+</mopups:PopupPage>
