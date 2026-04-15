@@ -149,7 +149,7 @@
                     CornerRadius="25" 
                     HeightRequest="55" 
                     FontAttributes="Bold"
-                    Margin="40,0,40,80"
+                    Margin="40,0,40,70"
                     Clicked="OnAddExpensesClick"/>
             </Grid>
         </Frame>

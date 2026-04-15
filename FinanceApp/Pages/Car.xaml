@@ -23,7 +23,7 @@
             </Border>
         </Grid>
         <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,30,0,-70">
-            <Grid RowDefinitions="Auto, Auto, Auto, *" Padding="25,30,25,80">
+            <Grid RowDefinitions="Auto, Auto, Auto, *,Auto" Padding="25,20,25,45">
 
                 <Grid Grid.Row="0" ColumnDefinitions="*, Auto" Margin="0,0,0,20">
                     <VerticalStackLayout Grid.Column="0" Spacing="15" VerticalOptions="Center">
@@ -120,16 +120,18 @@
                             <Label Grid.Column="2" Text="$85.94" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center"/>
                         </Grid>
 
-                        <Button Text="Add Savings" 
+                       
+                    </VerticalStackLayout>
+                </ScrollView>
+                <Button Grid.Row="4"
+                    Text="Add Savings" 
                      BackgroundColor="{StaticResource MainColor}" 
                      TextColor="{StaticResource Black}" 
                      CornerRadius="25" 
                      HeightRequest="55" 
                      FontAttributes="Bold"
                      Margin="0,10,0,20"
-                     Clicked="OnSaveClick"/>
-                    </VerticalStackLayout>
-                </ScrollView>
+                     Clicked="OnSaveClick"/>                     
             </Grid>
         </Frame>
     </Grid>

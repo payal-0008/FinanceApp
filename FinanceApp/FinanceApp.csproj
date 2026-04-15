@@ -132,6 +132,9 @@
 	  <MauiXaml Update="Pages\HelpAndFaqs.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
+	  <MauiXaml Update="Pages\IncomeAndExpense.xaml">
+	    <Generator>MSBuild:Compile</Generator>
+	  </MauiXaml>
 	  <MauiXaml Update="Pages\JohnPrint.xaml">
 	    <Generator>MSBuild:Compile</Generator>
 	  </MauiXaml>
