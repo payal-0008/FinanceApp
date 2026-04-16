@@ -2,127 +2,86 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinanceApp.Pages.IncomeAndExpense"
+             xmlns:models="clr-namespace:FinanceApp.Models"
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource MainColor}"
              Title="IncomeAndExpense">
-  
-    <Grid RowDefinitions="Auto, Auto, Auto, *" BackgroundColor="{StaticResource MainColor}">
+
+    <Grid RowDefinitions="Auto, Auto, Auto, *">
         <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
-            <Image Source="back_arrow.png" HeightRequest="25">
+            <Image Source="back_arrow.png" HeightRequest="25" VerticalOptions="Center">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Back"/>
                 </Image.GestureRecognizers>
             </Image>
 
-            <Label Grid.Column="1"
-               Text="Transaction"
-               FontSize="22"
-               TextColor="{StaticResource Black}"
-               FontAttributes="Bold"
-               HorizontalOptions="Center"
-               VerticalOptions="Center"/>
+            <Label Grid.Column="1" Text="Transaction" FontSize="22" FontAttributes="Bold"
+                   TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
 
-            <Border Grid.Column="2"
-                WidthRequest="45"
-                HeightRequest="45"
-                StrokeShape="RoundRectangle 22"
-                BackgroundColor="{StaticResource White}">
-                <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center"/>
+            <Border Grid.Column="2" WidthRequest="45" HeightRequest="45" StrokeShape="RoundRectangle 22" BackgroundColor="{StaticResource White}">
+                <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="notification"/>
+                    </Image.GestureRecognizers>
+                </Image>
             </Border>
         </Grid>
 
-        <Border Grid.Row="1"
-            Margin="20,10"
-            Padding="15"
-            BackgroundColor="{StaticResource White}"
-            StrokeShape="RoundRectangle 25">
+        <Border Grid.Row="1" Margin="20,10" Padding="15" BackgroundColor="{StaticResource White}" StrokeShape="RoundRectangle 25">
             <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
                 <Label Text="Total Balance" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource Black}" HorizontalTextAlignment="Center"/>
                 <Label Text="$7,783.00" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource Black}" HorizontalTextAlignment="Center"/>
             </VerticalStackLayout>
         </Border>
+
         <Grid Grid.Row="2" ColumnDefinitions="*, *" ColumnSpacing="15" Padding="20,10,20,20">
-            <Border x:Name="IncomeBorder"
-                Grid.Column="0"
-                BackgroundColor="{StaticResource MainColor}"
-                StrokeShape="RoundRectangle 25"
-                Padding="15">
+            <Border x:Name="IncomeBorder" Grid.Column="0" BackgroundColor="{StaticResource MainColor}" StrokeShape="RoundRectangle 25" Padding="15">
                 <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
                     <Image Source="up.png" HeightRequest="35"/>
-                    <Label x:Name="IncomeLbl" Text="Income" TextColor="Black"/>
-                    <Label x:Name="IncomeAmt" Text="$4,120.00" FontAttributes="Bold"/>
+                    <Label x:Name="IncomeLbl" Text="Income" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                    <Label x:Name="IncomeAmt" Text="$4,120.00" FontAttributes="Bold" HorizontalOptions="Center"/>
                 </VerticalStackLayout>
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnIncomeClick"/>
                 </Border.GestureRecognizers>
             </Border>
 
-            <Border x:Name="ExpenseBorder"
-                Grid.Column="1"
-                BackgroundColor="{StaticResource White}"
-                StrokeShape="RoundRectangle 25"
-                Padding="15">
+            <Border x:Name="ExpenseBorder" Grid.Column="1" BackgroundColor="{StaticResource White}" StrokeShape="RoundRectangle 25" Padding="15">
                 <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
                     <Image Source="down_arrows.png" HeightRequest="35"/>
-                    <Label x:Name="ExpenseLbl" Text="Expense"/>
-                    <Label x:Name="ExpenseAmt" Text="$1,187.40" FontAttributes="Bold" TextColor="Blue"/>
+                    <Label x:Name="ExpenseLbl" Text="Expense" HorizontalOptions="Center"/>
+                    <Label x:Name="ExpenseAmt" Text="$1,187.40" FontAttributes="Bold" TextColor="{StaticResource Blue}" HorizontalOptions="Center"/>
                 </VerticalStackLayout>
                 <Border.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnExpenseClick"/>
                 </Border.GestureRecognizers>
             </Border>
-
         </Grid>
-        <Frame Grid.Row="3"
-           CornerRadius="60"
-           BackgroundColor="{StaticResource Light}"
-           Margin="0,0,0,-70"
-           HasShadow="False">
-            <Grid RowDefinitions="Auto, *">
-                <Label Grid.Row="0"
-                   Text="Recent Transactions"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   Padding="25,20"
-                    TextColor="{StaticResource Black}"/>
 
-                <CollectionView x:Name="TransactionList"
-                            Grid.Row="1"
-                            Margin="20,0">
+        <Frame Grid.Row="3" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,0,0,-70" HasShadow="False" Padding="0">
+            <Grid RowDefinitions="Auto, *">
+                <Label Grid.Row="0" Text="Recent Transactions" FontSize="20" FontAttributes="Bold" Padding="30,30,30,15" TextColor="{StaticResource Black}"/>
+
+                <CollectionView x:Name="TransactionList" Grid.Row="1" Margin="20,0,20,70">
                     <CollectionView.ItemTemplate>
-                        <DataTemplate>
-                            <Grid ColumnDefinitions="60, *, 1, 80, 1, 100"
-                              ColumnSpacing="5"
-                              Padding="0,10">
-                                <Border Grid.Column="0"
-                                    BackgroundColor="{StaticResource MainColor}"
-                                    StrokeShape="RoundRectangle 15"
-                                    HeightRequest="55"
-                                    WidthRequest="55"
-                                    Padding="9">
+                        <DataTemplate x:DataType="models:TransactionModel">
+                            <Grid ColumnDefinitions="60, *, 1, 80, 1, 90" ColumnSpacing="5" Padding="0,12">
+                                <Border Grid.Column="0" BackgroundColor="{StaticResource MainColor}" StrokeShape="RoundRectangle 15" HeightRequest="55" WidthRequest="55" Padding="11">
                                     <Image Source="{Binding Icon}"/>
                                 </Border>
 
-                                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
-                                    <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Margin="5,0">
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" TextColor="{StaticResource Black}" MaxLines="1"/>
                                     <Label Text="{Binding Date}" FontSize="11" TextColor="{StaticResource Blue}"/>
                                 </VerticalStackLayout>
 
                                 <BoxView Grid.Column="2" WidthRequest="1" Color="{StaticResource Gray200}" Margin="0,10"/>
-                                <Label Grid.Column="3"
-                                   Text="{Binding Category}"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="Center"
-                                   FontSize="12"
-                                   TextColor="{StaticResource IconColor}"/>
+
+                                <Label Grid.Column="3" Text="{Binding Category}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="12" TextColor="{StaticResource IconColor}" FontAttributes="Bold"/>
 
                                 <BoxView Grid.Column="4" WidthRequest="1" Color="{StaticResource Gray200}" Margin="0,10"/>
-                                <Label Grid.Column="5"
-                                   Text="{Binding Amount}"
-                                   FontAttributes="Bold"
-                                   VerticalOptions="Center"
-                                   HorizontalOptions="End"
-                                   TextColor="{Binding AmountColor}"/>
+
+                                <Label Grid.Column="5" Text="{Binding Amount}" FontAttributes="Bold" VerticalOptions="Center" HorizontalTextAlignment="End" TextColor="{Binding AmountColor}" Margin="0,0,5,0"/>
                             </Grid>
                         </DataTemplate>
                     </CollectionView.ItemTemplate>

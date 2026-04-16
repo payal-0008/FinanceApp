@@ -31,7 +31,7 @@
                      FontAttributes="Bold"
                      HorizontalTextAlignment="Center"/>
 
-                <Label Text="Changed Successfully" 
+                <Label Text="Added Successfully" 
                      TextColor="{StaticResource White}" 
                      FontSize="22" 
                      FontAttributes="Bold"

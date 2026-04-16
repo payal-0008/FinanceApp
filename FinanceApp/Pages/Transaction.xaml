@@ -2,18 +2,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinanceApp.Pages.Transaction"
+             xmlns:models="clr-namespace:FinanceApp.Models"
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource MainColor}"
              Title="Transaction">
     <Grid RowDefinitions="Auto,Auto,Auto,*">
         <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
-            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Back"/>
                 </Image.GestureRecognizers>
             </Image>
             <Label Grid.Column="1" Text="Transaction" FontSize="22" FontAttributes="Bold" 
-              TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                   TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
             <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
                 <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
                     <Image.GestureRecognizers>
@@ -22,8 +23,9 @@
                 </Image>
             </Border>
         </Grid>
+
         <Border Grid.Row="1" Margin="20,10" Padding="15" BackgroundColor="{StaticResource White}" 
-                  StrokeShape="RoundRectangle 25" StrokeThickness="0">
+                StrokeShape="RoundRectangle 25" StrokeThickness="0">
             <VerticalStackLayout HorizontalOptions="Center" Spacing="5">
                 <Label Text="Total Balance" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
                 <Label Text="$7,783.00" FontSize="32" FontAttributes="Bold" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
@@ -41,6 +43,7 @@
                     <TapGestureRecognizer Tapped="OnIncomeClick"/>
                 </Border.GestureRecognizers>
             </Border>
+
             <Border Grid.Column="1" BackgroundColor="{StaticResource White}" StrokeShape="RoundRectangle 25" Padding="25">
                 <VerticalStackLayout HorizontalOptions="Center" Spacing="3">
                     <Image Source="down_arrows.png" HeightRequest="25"/>
@@ -52,97 +55,51 @@
                 </Border.GestureRecognizers>
             </Border>
         </Grid>
-        <Frame Grid.Row="3" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,0,0,-70">
+
+        <Frame Grid.Row="3" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,0,0,-70" Padding="0" HasShadow="False">
             <Grid RowDefinitions="Auto, *">
 
-                <Grid Grid.Row="0" ColumnDefinitions="*, Auto" Padding="20,20,20,10">
-                    <Label Text="April" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                <Grid Grid.Row="0" ColumnDefinitions="*, Auto" Padding="30,30,30,10">
+                    <Label Text="Activity" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
                     <Border Grid.Column="1" BackgroundColor="{StaticResource MainColor}" HeightRequest="35" WidthRequest="35" StrokeShape="RoundRectangle 10">
                         <Image Source="calendar.png" HeightRequest="20"/>
                     </Border>
                 </Grid>
 
-                <ScrollView Grid.Row="1">
-                    <VerticalStackLayout Padding="20,0,20,0" Spacing="20">
+                <CollectionView Grid.Row="1" x:Name="TransactionList" IsGrouped="True" Margin="20,0,20,70">
+                    <CollectionView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <Label Text="{Binding Name}" FontSize="20" FontAttributes="Bold" 
+                                   TextColor="{StaticResource Black}" Margin="0,15,0,10"/>
+                        </DataTemplate>
+                    </CollectionView.GroupHeaderTemplate>
 
-                        <Grid ColumnDefinitions="60, *, 2, *, 2, Auto" ColumnSpacing="10">
-                            <Frame Grid.Column="0" BackgroundColor="{StaticResource MainColor}" 
-                                   CornerRadius="20" WidthRequest="55" HeightRequest="55" Padding="11">
-                                <Image Source="money.png"/>
-                            </Frame>
-                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
-                                <Label Text="Salary" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                                <Label Text="18:27 - April 30" FontSize="11" TextColor="{StaticResource Blue}"/>
-                            </VerticalStackLayout>
-                            <BoxView Grid.Column="2" WidthRequest="1" Color="{StaticResource Gray200}" VerticalOptions="Fill"/>
-                            <Label Grid.Column="3" Text="Monthly" VerticalOptions="Center" HorizontalOptions="Center" FontAttributes="Bold" TextColor="{StaticResource IconColor}" FontSize="13"/>
-                            <BoxView Grid.Column="4" WidthRequest="1" Color="{StaticResource Gray200}" VerticalOptions="Fill" Margin="0,0,0,0"/>
-                            <Label Grid.Column="5" Text="$4.000,00" FontAttributes="Bold" VerticalOptions="Center" TextColor="{StaticResource Black}" Margin="-5,0,0,0"/>
-                        </Grid>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:DashboardTransaction">
+                            <Grid ColumnDefinitions="60, *, 1, 80, 1, 90" ColumnSpacing="5" Padding="0,12">
+                                <Frame Grid.Column="0" BackgroundColor="{StaticResource MainColor}" 
+                                       CornerRadius="20" WidthRequest="55" HeightRequest="55" Padding="11">
+                                    <Image Source="{Binding Icon}"/>
+                                </Frame>
 
-                        <Grid ColumnDefinitions="60, *, 2, *, 2, Auto" ColumnSpacing="10">
-                            <Frame Grid.Column="0" BackgroundColor="{StaticResource MainColor}" 
-                                   CornerRadius="20" WidthRequest="55" HeightRequest="55" Padding="11">
-                                <Image Source="grocery.png"/>
-                            </Frame>
-                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
-                                <Label Text="Groceries" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                                <Label Text="17:00 - April 24" FontSize="11" TextColor="{StaticResource Blue}"/>
-                            </VerticalStackLayout>
-                            <BoxView Grid.Column="2" WidthRequest="1" Color="{StaticResource Gray200}" VerticalOptions="Fill"/>
-                            <Label Grid.Column="3" Text="Pantry" VerticalOptions="Center" HorizontalOptions="Center" TextColor="{StaticResource IconColor}" FontSize="13"/>
-                            <BoxView Grid.Column="4" WidthRequest="1" Color="{StaticResource Gray200}" VerticalOptions="Fill"/>
-                            <Label Grid.Column="5" Text="-$100,00" FontAttributes="Bold" VerticalOptions="Center" TextColor="{StaticResource Blue}"/>
-                        </Grid>
+                                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Margin="5,0">
+                                    <Label Text="{Binding Title}" FontAttributes="Bold" TextColor="{StaticResource Black}" MaxLines="1"/>
+                                    <Label Text="{Binding Date}" FontSize="11" TextColor="{StaticResource Blue}"/>
+                                </VerticalStackLayout>
 
-                        <Grid ColumnDefinitions="60, *, 2, *, 2, Auto" ColumnSpacing="10">
-                            <Frame Grid.Column="0" BackgroundColor="{StaticResource MainColor}" 
-                                   CornerRadius="20" WidthRequest="55" HeightRequest="55" Padding="11">
-                                <Image Source="house_key.png"/>
-                            </Frame>
-                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
-                                <Label Text="Rent" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                                <Label Text="8:30 - April 15" FontSize="11" TextColor="{StaticResource Blue}"/>
-                            </VerticalStackLayout>
-                            <BoxView Grid.Column="2" WidthRequest="1" Color="{StaticResource Gray200}" VerticalOptions="Fill"/>
-                            <Label Grid.Column="3" Text="Rent" VerticalOptions="Center" HorizontalOptions="Center" TextColor="{StaticResource IconColor}" FontSize="13"/>
-                            <BoxView Grid.Column="4" WidthRequest="1" Color="{StaticResource Gray200}" VerticalOptions="Fill"/>
-                            <Label Grid.Column="5" Text="-$674,40" FontAttributes="Bold" VerticalOptions="Center" TextColor="{StaticResource Blue}"/>
-                        </Grid>
-                        <Grid ColumnDefinitions="60, *, 2, *, 2, Auto" ColumnSpacing="10">
-                            <Frame Grid.Column="0" BackgroundColor="{StaticResource MainColor}" 
-                                   CornerRadius="20" WidthRequest="55" HeightRequest="55" Padding="0">
-                                <Image Source="car.png" Aspect="AspectFit"/>
-                            </Frame>
-                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
-                                <Label Text="Transport" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                                <Label Text="7:30 - April 08" FontSize="11" TextColor="{StaticResource Blue}"/>
-                            </VerticalStackLayout>
-                            <BoxView Grid.Column="2" WidthRequest="1" Color="{StaticResource Gray200}" VerticalOptions="Fill"/>
-                            <Label Grid.Column="3" Text="Fuel" VerticalOptions="Center" HorizontalOptions="Center" TextColor="{StaticResource IconColor}" FontSize="13"/>
-                            <BoxView Grid.Column="4" WidthRequest="1" Color="{StaticResource Gray200}" VerticalOptions="Fill"/>
-                            <Label Grid.Column="5" Text="-$4,13" FontAttributes="Bold" VerticalOptions="Center" TextColor="{StaticResource Blue}" Margin="10,0,0,0"/>
-                        </Grid>
-                        <Label Text="March" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Black}" Margin="0,10,0,0"/>
-                        <Grid ColumnDefinitions="60, *, 2, *, 2, Auto" ColumnSpacing="10">
-                            <Frame Grid.Column="0" BackgroundColor="{StaticResource MainColor}" 
-                                   CornerRadius="20" WidthRequest="55" HeightRequest="55" Padding="10">
-                                <Image Source="food.png" Aspect="AspectFit" VerticalOptions="Center" HorizontalOptions="Center"/>
-                            </Frame>
-                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
-                                <Label Text="Food" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                                <Label Text="19:30 - March 31" FontSize="11" TextColor="{StaticResource Blue}"/>
-                            </VerticalStackLayout>
-                            <BoxView Grid.Column="2" WidthRequest="1" Color="{StaticResource Gray200}" VerticalOptions="Fill"/>
-                            <Label Grid.Column="3" Text="Dinner" VerticalOptions="Center" HorizontalOptions="Center" TextColor="{StaticResource IconColor}" FontSize="13"/>
-                            <BoxView Grid.Column="4" WidthRequest="1" Color="{StaticResource Gray200}" VerticalOptions="Fill"/>
-                            <Label Grid.Column="5" Text="-$70,40" FontAttributes="Bold" VerticalOptions="Center" TextColor="{StaticResource Blue}"/>
-                        </Grid>
-                    </VerticalStackLayout>
+                                <BoxView Grid.Column="2" WidthRequest="1" Color="{StaticResource Gray200}" VerticalOptions="Fill" Margin="0,10"/>
 
-                </ScrollView>
+                                <Label Grid.Column="3" Text="{Binding TypeName}" VerticalOptions="Center" 
+                                       HorizontalOptions="Center" FontAttributes="Bold" TextColor="{StaticResource IconColor}" FontSize="12"/>
 
+                                <BoxView Grid.Column="4" WidthRequest="1" Color="{StaticResource Gray200}" VerticalOptions="Fill" Margin="0,10"/>
 
+                                <Label Grid.Column="5" Text="{Binding Amount}" FontAttributes="Bold" 
+                                       VerticalOptions="Center" TextColor="{Binding AmountColor}" HorizontalTextAlignment="End" Margin="0,0,5,0"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
             </Grid>
         </Frame>
     </Grid>

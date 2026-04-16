@@ -105,7 +105,7 @@
                     </CollectionView>
                 </VerticalStackLayout>
 
-                <Button Grid.Row="1" Text="Start Another Chat" CornerRadius="25" HeightRequest="55" Margin="0,5,0,20"
+                <Button Grid.Row="1" Text="Start Another Chat" CornerRadius="25" HeightRequest="55" Margin="0,5,0,70"
                 BackgroundColor="{StaticResource MainColor}" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
             </Grid>
         </Frame>

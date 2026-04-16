@@ -28,4 +28,9 @@ public partial class AddExpenses : ContentPage
             SelectedDateLabel.Text = $"{e.NewDate:MMMM dd, yyyy}";
         }
     }
+    private async void OnSelectCategoryTapped(object sender, EventArgs e)
+    {
+        // Yahan tu Picker ya bottom sheet khol sakta hai
+        await DisplayActionSheet("Select Category", "Cancel", null, "Food", "Transport", "Medicine", "Rent");
+    }
 }

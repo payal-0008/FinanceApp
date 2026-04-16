@@ -5,7 +5,7 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource MainColor}"
              Title="AddExpenses">
-    <Grid RowDefinitions="Auto,*">
+    <!--<Grid RowDefinitions="Auto,*">
         <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
             <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
                 <Image.GestureRecognizers>
@@ -105,5 +105,81 @@
                 </Grid>
             </ScrollView>
         </Frame>
+    </Grid>-->
+
+    <Grid RowDefinitions="Auto,*">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
+            <Image Source="back_arrow.png" HeightRequest="25">
+                <Image.GestureRecognizers>
+                    <TapGestureRecognizer Tapped="Back"/>
+                </Image.GestureRecognizers>
+            </Image>
+            <Label Grid.Column="1" Text="Add Expenses" FontSize="22" FontAttributes="Bold" 
+                   TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+            <Border Grid.Column="2" BackgroundColor="White" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="notification"/>
+                    </Image.GestureRecognizers>
+                </Image>
+            </Border>
+        </Grid>
+
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,30,0,-70" Padding="0">
+        <ScrollView Padding="25,30,25,80">
+            <VerticalStackLayout Spacing="20">
+
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Date" FontAttributes="Bold" FontSize="16" TextColor="Black"/>
+                    <Border StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource EntryBG}" HeightRequest="55" StrokeThickness="0">
+                        <Grid ColumnDefinitions="*, Auto" Padding="20,0">
+                            <Label x:Name="SelectedDateLabel" Text="Select Date" VerticalOptions="Center" TextColor="Black"/>
+                            <Image Grid.Column="1" Source="calendar.png" HeightRequest="22" VerticalOptions="Center"/>
+                            <DatePicker x:Name="MyDatePicker" Opacity="0.01" Grid.ColumnSpan="2" DateSelected="OnDateSelected"/>
+                        </Grid>
+                    </Border>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Category" FontAttributes="Bold" FontSize="16" TextColor="Black"/>
+                    <Border StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource EntryBG}" HeightRequest="55" StrokeThickness="0">
+                        <Grid ColumnDefinitions="*, Auto" Padding="20,0">
+                            <Label Text="Select the category" VerticalOptions="Center" TextColor="Black"/>
+                            <Image Grid.Column="1" Source="down_arrow.png" HeightRequest="12" VerticalOptions="Center"/>
+                        </Grid>
+                        <Border.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnSelectCategoryTapped"/>
+                        </Border.GestureRecognizers>
+                    </Border>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Amount" FontAttributes="Bold" FontSize="16" TextColor="Black"/>
+                    <Border StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource EntryBG}" HeightRequest="55" StrokeThickness="0">
+                        <Entry Placeholder="$ 0.00" PlaceholderColor="Gray" Keyboard="Numeric" TextColor="Black" Margin="15,0" VerticalOptions="Center"/>
+                    </Border>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Expense Title" FontAttributes="Bold" FontSize="16" TextColor="Black"/>
+                    <Border StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource EntryBG}" HeightRequest="55" StrokeThickness="0">
+                        <Entry Placeholder="e.g. Dinner" PlaceholderColor="Gray" TextColor="Black" Margin="15,0" VerticalOptions="Center"/>
+                    </Border>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Spacing="8">
+                    <Label Text="Enter Message" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource MainColor}"/>
+                    <Border StrokeShape="RoundRectangle 20" BackgroundColor="{StaticResource EntryBG}" HeightRequest="120" StrokeThickness="0">
+                        <Editor Placeholder="Type details here..." PlaceholderColor="Gray" TextColor="Black" AutoSize="TextChanges" Margin="10"/>
+                    </Border>
+                </VerticalStackLayout>
+
+                <Button Text="Save" BackgroundColor="{StaticResource MainColor}" TextColor="Black" 
+                            FontAttributes="Bold" FontSize="18" CornerRadius="25" HeightRequest="60" 
+                            Margin="0,10,0,0" Clicked="OnSaveClicked"/>
+
+            </VerticalStackLayout>
+        </ScrollView>
+    </Frame>
     </Grid>
 </ContentPage>

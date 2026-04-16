@@ -1,55 +1,58 @@
+using FinanceApp.Models;
 using Mopups.Services;
+using System.Collections.ObjectModel;
 
 namespace FinanceApp.Pages;
 
 public partial class Category : ContentPage
 {
-	public Category()
-	{
-		InitializeComponent();
-	}
-    private async void Back(object sender, EventArgs e)
+    public ObservableCollection<CategoryModel> Categories { get; set; }
+
+    public Category()
     {
-        await Navigation.PopAsync();
+        InitializeComponent();
+        LoadCategories();
     }
-    private async void notification(object sender, EventArgs e)
+
+    private void LoadCategories()
     {
-        await Navigation.PushAsync(new Notification());
+        Categories = new ObservableCollection<CategoryModel>
+        {
+            new CategoryModel { Name = "Food", Icon = "food.png", TargetPage = "Food" },
+            new CategoryModel { Name = "Transport", Icon = "car.png", TargetPage = "Transport" },
+            new CategoryModel { Name = "Medicine", Icon = "medicine.png", TargetPage = "Medicine" },
+            new CategoryModel { Name = "Groceries", Icon = "grocery.png", TargetPage = "Groceries" },
+            new CategoryModel { Name = "Rent", Icon = "house_key.png", TargetPage = "Rent" },
+            new CategoryModel { Name = "Gifts", Icon = "gift.png", TargetPage = "Gifts" },
+            new CategoryModel { Name = "Savings", Icon = "money.png", TargetPage = "Savings" },
+            new CategoryModel { Name = "Entertainment", Icon = "video.png", TargetPage = "Entertainment" },
+            new CategoryModel { Name = "More", Icon = "sum.png", TargetPage = "More" }
+        };
+
+        CategoryList.ItemsSource = Categories;
     }
-    private async void OnFoodClick(object sender, EventArgs e)
+
+    private async void OnCategoryTapped(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new Food());
+        var layout = (VerticalStackLayout)sender;
+        var gesture = (TapGestureRecognizer)layout.GestureRecognizers[0];
+        var category = (CategoryModel)gesture.CommandParameter;
+
+        if (category.Name == "More")
+        {
+            await MopupService.Instance.PushAsync(new MorePopUp());
+            return;
+        }
+
+        Type pageType = Type.GetType($"FinanceApp.Pages.{category.TargetPage}");
+        if (pageType != null)
+        {
+            var page = (ContentPage)Activator.CreateInstance(pageType);
+            await Navigation.PushAsync(page);
+        }
     }
-    private async void OnTransportClick(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new Transport());
-    }
-    private async void OnGroceryClick(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new Groceries());
-    }
-    private async void OnRentClick(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new Rent());
-    }
-    private async void OnGiftsClick(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new Gifts());
-    }
-    private async void OnSavingClick(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new Savings());
-    }
-    private async void OnMedicineClick(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new Medicine());
-    }
-    private async void OnEntertainmentClick(object sender, EventArgs e)
-    {
-        await Navigation.PushAsync(new Entertainment());
-    }
-    private async void OnMoreClick(object sender, EventArgs e)
-    {
-        await MopupService.Instance.PushAsync(new MorePopUp());
-    }
+
+    private async void Back(object sender, EventArgs e) => await Navigation.PopAsync();
+
+    private async void notification(object sender, EventArgs e) => await Navigation.PushAsync(new Notification());
 }

@@ -3,18 +3,19 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinanceApp.Pages.Wedding"
              Shell.NavBarIsVisible="False"
+             xmlns:models="clr-namespace:FinanceApp.Models"
              BackgroundColor="{StaticResource MainColor}"
              Title="Wedding">
 
     <Grid RowDefinitions="Auto,*">
         <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
-            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+            <Image Source="back_arrow.png" HeightRequest="25">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Back"/>
                 </Image.GestureRecognizers>
             </Image>
             <Label Grid.Column="1" Text="Wedding" FontSize="22" FontAttributes="Bold" 
-          TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                   TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
             <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
                 <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
                     <Image.GestureRecognizers>
@@ -23,11 +24,12 @@
                 </Image>
             </Border>
         </Grid>
-        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,30,0,-70">
-            <Grid RowDefinitions="Auto, Auto, Auto, *,Auto" Padding="25,20,25,48">
+
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,30,0,-70" Padding="0" HasShadow="False">
+            <Grid RowDefinitions="Auto, Auto, *, Auto" Padding="25,30,25,85">
 
                 <Grid Grid.Row="0" ColumnDefinitions="*, Auto" Margin="0,0,0,20">
-                    <VerticalStackLayout Grid.Column="0" Spacing="15" VerticalOptions="Center">
+                    <VerticalStackLayout Spacing="15" VerticalOptions="Center">
                         <VerticalStackLayout Spacing="2">
                             <HorizontalStackLayout Spacing="5">
                                 <Image Source="up.png" WidthRequest="15"/>
@@ -35,7 +37,6 @@
                             </HorizontalStackLayout>
                             <Label Text="$1,962.93" FontSize="28" FontAttributes="Bold" TextColor="{StaticResource IconColor}"/>
                         </VerticalStackLayout>
-
                         <VerticalStackLayout Spacing="2">
                             <HorizontalStackLayout Spacing="5">
                                 <Image Source="up.png" WidthRequest="15"/>
@@ -45,94 +46,62 @@
                         </VerticalStackLayout>
                     </VerticalStackLayout>
 
-                    <Border Grid.Column="1" 
-                   StrokeShape="RoundRectangle 40" 
-                   BackgroundColor="{StaticResource MainColor}" 
-                   HeightRequest="160" 
-                   WidthRequest="160"
-                   StrokeThickness="0">
+                    <Border Grid.Column="1" StrokeShape="RoundRectangle 40" BackgroundColor="{StaticResource MainColor}" 
+                            HeightRequest="150" WidthRequest="150" StrokeThickness="0">
                         <Grid RowDefinitions="Auto,Auto" VerticalOptions="Center">
-                            <Ellipse Stroke="{StaticResource White}" StrokeThickness="8" WidthRequest="100" HeightRequest="100" />
-                            <Image Grid.Row="0" Source="wedding_rings.png" WidthRequest="50" HorizontalOptions="Center" />
-                            <Label Grid.Row="1" Text="Wedding" TextColor="{StaticResource Black}" FontSize="16" HorizontalOptions="Center" Margin="0,10,0,0"/>
+                            <Ellipse Stroke="{StaticResource White}" StrokeThickness="6" WidthRequest="90" HeightRequest="90" HorizontalOptions="Center"/>
+                            <Image Source="wedding_rings.png" WidthRequest="55" Margin="0,0,0,0"/>
+                            <Label Grid.Row="1" Text="Weddings" TextColor="{StaticResource Black}" FontSize="16" FontAttributes="Bold" HorizontalOptions="Center" Margin="0,5,0,0"/>
                         </Grid>
                     </Border>
                 </Grid>
 
-                <VerticalStackLayout Grid.Row="1" Spacing="15" Margin="0,10">
+                <VerticalStackLayout Grid.Row="1" Spacing="12">
                     <Border StrokeShape="RoundRectangle 20" BackgroundColor="{StaticResource MainColor}" HeightRequest="35" StrokeThickness="0">
-                        <Grid ColumnDefinitions="10*, 60*">
-                            <BoxView Grid.Column="0" BackgroundColor="{StaticResource IconColor}"/>
-                            <Label Grid.Column="0" Text="10%" FontAttributes="Bold" TextColor="{StaticResource White}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="12"/>
-                            <Label Grid.Column="1" Text="34,700" FontAttributes="Bold"
-                              TextColor="{StaticResource White}" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,15,0" FontSize="12"/>
+                        <Grid ColumnDefinitions="12*, 88*">
+                            <BoxView BackgroundColor="{StaticResource IconColor}"/>
+                            <Label Text="10%" FontAttributes="Bold" TextColor="{StaticResource White}" VerticalOptions="Center" HorizontalOptions="Center" FontSize="10"/>
+                            <Label Grid.Column="1" Text="34,700" FontAttributes="Bold" TextColor="{StaticResource White}" VerticalOptions="Center" HorizontalOptions="End" Margin="0,0,15,0" FontSize="12"/>
                         </Grid>
                     </Border>
-
                     <HorizontalStackLayout Spacing="8" HorizontalOptions="Center">
                         <Image Source="check_icon.png" WidthRequest="18"/>
-                        <Label Text="30% Of Your Expenses, Looks Good." FontSize="14"   TextColor="{StaticResource IconColor}" FontAttributes="Bold"/>
+                        <Label Text="30% Of Your Expenses, Looks Good." FontSize="14" TextColor="{StaticResource IconColor}" FontAttributes="Bold"/>
                     </HorizontalStackLayout>
                 </VerticalStackLayout>
 
+                <CollectionView Grid.Row="2" x:Name="WeddingHistoryList" IsGrouped="True">
+                    <CollectionView.GroupHeaderTemplate>
+                        <DataTemplate>
+                            <Grid ColumnDefinitions="*, Auto" Padding="0,15,0,10">
+                                <Label Text="{Binding GroupTitle}" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource IconColor}"/>
+                                <Border Grid.Column="1" StrokeShape="RoundRectangle 10" BackgroundColor="{StaticResource MainColor}" HeightRequest="35" WidthRequest="35">
+                                    <Image Source="calendar.png" HeightRequest="18"/>
+                                </Border>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.GroupHeaderTemplate>
 
-                <Grid Grid.Row="2" ColumnDefinitions="*, Auto" Margin="0,20,0,10">
-                    <Label Text="November" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource IconColor}"/>
-                    <Border Grid.Column="1" StrokeShape="RoundRectangle 10" BackgroundColor="{StaticResource MainColor}" HeightRequest="35" WidthRequest="35">
-                        <Image Source="calendar.png" HeightRequest="20" HorizontalOptions="Center" VerticalOptions="Center"/>
-                    </Border>
-                </Grid>
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate x:DataType="models:TransactionModel">
+                            <Grid ColumnDefinitions="60, *, Auto" Padding="0,10">
+                                <Grid>
+                                    <Ellipse Fill="{StaticResource MainColor}" WidthRequest="55" HeightRequest="55"/>
+                                    <Image Source="{Binding Icon}" WidthRequest="30"/>
+                                </Grid>
+                                <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Margin="15,0">
+                                    <Label Text="{Binding Name}" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource IconColor}"/>
+                                    <Label Text="{Binding Date}" FontSize="12" TextColor="{StaticResource Blue}"/>
+                                </VerticalStackLayout>
+                                <Label Grid.Column="2" Text="{Binding Amount}" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center"/>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
 
-                <ScrollView Grid.Row="3">
-                    <VerticalStackLayout Spacing="20" Margin="0,20,15,0">
-                        <Grid ColumnDefinitions="60, *, Auto">
-                            <Ellipse Grid.Column="0" Fill="{StaticResource MainColor}" WidthRequest="55" HeightRequest="55"/>
-                            <Image Grid.Column="0" Source="wedding_rings.png" WidthRequest="30"/>
-
-                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Margin="15,0">
-                                <Label Text="Wedding Deposit" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource IconColor}"/>
-                                <Label Text="18:46 - November 15" FontSize="13" TextColor="{StaticResource Blue}"/>
-                            </VerticalStackLayout>
-
-                            <Label Grid.Column="2" Text="$87.32" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center"/>
-                        </Grid>
-
-                        <Label Text="September" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource IconColor}"/>
-
-
-                        <Grid ColumnDefinitions="60, *, Auto">
-                            <Ellipse Grid.Column="0" Fill="{StaticResource MainColor}" WidthRequest="55" HeightRequest="55"/>
-                            <Image Grid.Column="0" Source="wedding_rings.png" WidthRequest="30"/>
-
-                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Margin="15,0">
-                                <Label Text="Wedding Deposit" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource IconColor}"/>
-                                <Label Text="21:45 - September 30" FontSize="13" TextColor="{StaticResource Blue}"/>
-                            </VerticalStackLayout>
-                            <Label Grid.Column="2" Text="$22.99" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center"/>
-                        </Grid>
-                        <Grid ColumnDefinitions="60, *, Auto">
-                            <Ellipse Grid.Column="0" Fill="{StaticResource MainColor}" WidthRequest="55" HeightRequest="55"/>
-                            <Image Grid.Column="0" Source="wedding_rings.png" WidthRequest="30"/>
-
-                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Margin="15,0">
-                                <Label Text="wedding Deposit" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource IconColor}"/>
-                                <Label Text="12:25 - September 05" FontSize="13" TextColor="{StaticResource Blue}"/>
-                            </VerticalStackLayout>
-                            <Label Grid.Column="2" Text="$185.94" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}" VerticalOptions="Center"/>
-                        </Grid>
-
-                       
-                    </VerticalStackLayout>
-                </ScrollView>
-                <Button Grid.Row="4"
-                    Text="Add Savings" 
-                    BackgroundColor="{StaticResource MainColor}" 
-                    TextColor="{StaticResource Black}" 
-                    CornerRadius="25" 
-                    HeightRequest="55" 
-                    FontAttributes="Bold"
-                    Margin="0,10,0,20"
-                    Clicked="OnSaveClick"/>                    
+                <Button Grid.Row="3" Text="Add Savings" BackgroundColor="{StaticResource MainColor}" 
+                        TextColor="{StaticResource Black}" CornerRadius="25" HeightRequest="55" FontAttributes="Bold"
+                        Margin="0,10,0,0" Clicked="OnSaveClick"/>
             </Grid>
         </Frame>
     </Grid>

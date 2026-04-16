@@ -2,18 +2,17 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinanceApp.Pages.AddSavings"
-             Shell.NavBarIsVisible="False"
-             BackgroundColor="{StaticResource MainColor}"
-             Title="AddSavings">
+             Shell.NavBarIsVisible="False" 
+             BackgroundColor="{StaticResource MainColor}">
     <Grid RowDefinitions="Auto,*">
         <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
-            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+            <Image Source="back_arrow.png" HeightRequest="25">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Back"/>
                 </Image.GestureRecognizers>
             </Image>
             <Label Grid.Column="1" Text="Add Savings" FontSize="22" FontAttributes="Bold" 
-              TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                   TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
             <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
                 <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
                     <Image.GestureRecognizers>
@@ -22,87 +21,58 @@
                 </Image>
             </Border>
         </Grid>
-        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,30,0,-70">
-            <ScrollView>
-                <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto, Auto" 
-                   RowSpacing="20" 
-                   Padding="25,20,25,0">
 
-                    <Grid Grid.Row="0" RowDefinitions="Auto, Auto" RowSpacing="8">
-                        <Label Grid.Row="0" Text="Date" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}"/>
-                        <Border StrokeShape="RoundRectangle 15" 
-                           BackgroundColor="{StaticResource EntryBG}" 
-                           HeightRequest="55" 
-                           StrokeThickness="0"
-                             Grid.Row="1">
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,30,0,-70" Padding="0" HasShadow="False">
+            <ScrollView Orientation="Vertical">
+                <VerticalStackLayout Padding="25,40,25,100" Spacing="20">
 
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Date" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}"/>
+                        <Border StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource EntryBG}" HeightRequest="55" StrokeThickness="0">
                             <Grid ColumnDefinitions="*, Auto" Padding="20,0">
-
-                                <Label Grid.Column="0" 
-                                x:Name="SelectedDateLabel"
-                                Text="Select Date" 
-                                VerticalOptions="Center" 
-                                TextColor="{StaticResource Black}"/>
-
-                                <Image Grid.Column="1" 
-                                Source="calendar.png" 
-                                HeightRequest="25" 
-                                WidthRequest="25"
-                                VerticalOptions="Center"/>
-
-                                <DatePicker Grid.ColumnSpan="2"
-                                 x:Name="MyDatePicker"
-                                 Opacity="0"
-                                 DateSelected="OnDateSelected"
-                                 HorizontalOptions="FillAndExpand"
-                                 VerticalOptions="FillAndExpand"/>
+                                <Label x:Name="SelectedDateLabel" Text="Select Date" VerticalOptions="Center" TextColor="{StaticResource Black}"/>
+                                <Image Grid.Column="1" Source="calendar.png" HeightRequest="22" VerticalOptions="Center"/>
+                                <DatePicker Grid.ColumnSpan="2" x:Name="MyDatePicker" Opacity="0" DateSelected="OnDateSelected"/>
                             </Grid>
                         </Border>
-                    </Grid>
+                    </VerticalStackLayout>
 
-                    <Grid Grid.Row="1" RowDefinitions="Auto, Auto" RowSpacing="8">
-                        <Label Grid.Row="0" Text="Category" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}"/>
-                        <Border Grid.Row="1" StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource EntryBG}" HeightRequest="55" StrokeThickness="0">
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Category" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}"/>
+                        <Border StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource EntryBG}" HeightRequest="55" StrokeThickness="0">
                             <Grid ColumnDefinitions="*, Auto" Padding="20,0">
-                                <Label Grid.Column="0" Text="Select the category" VerticalOptions="Center" TextColor="{StaticResource Black}"/>
-                                <Image Grid.Column="1" Source="down_arrow.png" HeightRequest="15" VerticalOptions="Center"/>
+                                <Picker x:Name="CategoryPicker" Title="Select the category" TextColor="{StaticResource Black}" VerticalOptions="Center"/>
+                                <Image Grid.Column="1" Source="down_arrow.png" HeightRequest="12" VerticalOptions="Center" InputTransparent="True"/>
                             </Grid>
                         </Border>
-                    </Grid>
+                    </VerticalStackLayout>
 
-                    <Grid Grid.Row="2" RowDefinitions="Auto, Auto" RowSpacing="8">
-                        <Label Grid.Row="0" Text="Amount" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}"/>
-                        <Border Grid.Row="1" StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource EntryBG}" HeightRequest="55" StrokeThickness="0">
-                            <Entry  Placeholder="$ 2,00" PlaceholderColor="{StaticResource Gray400}" Text="" TextColor="{StaticResource Black}" Keyboard="Numeric" VerticalOptions="Center" Margin="15,0"/>
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Amount" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}"/>
+                        <Border StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource EntryBG}" HeightRequest="55" StrokeThickness="0">
+                            <Entry Placeholder="$ 0.00" PlaceholderColor="{StaticResource Grey400}" TextColor="{StaticResource Black}" Keyboard="Numeric" VerticalOptions="Center" Margin="15,0"/>
                         </Border>
-                    </Grid>
+                    </VerticalStackLayout>
 
-                    <Grid Grid.Row="3" RowDefinitions="Auto, Auto" RowSpacing="8">
-                        <Label Grid.Row="0" Text="Expense Title" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}"/>
-                        <Border Grid.Row="1" StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource EntryBG}" HeightRequest="55" StrokeThickness="0">
-                            <Entry  Placeholder="Dinner" PlaceholderColor="{StaticResource Gray400}"
-                                 Text="" TextColor="{StaticResource Black}" VerticalOptions="Center" Margin="15,0"/>
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Savings Title" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}"/>
+                        <Border StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource EntryBG}" HeightRequest="55" StrokeThickness="0">
+                            <Entry Placeholder="e.g. Dream Car" PlaceholderColor="Grey" TextColor="{StaticResource Black}" VerticalOptions="Center" Margin="15,0"/>
                         </Border>
-                    </Grid>
+                    </VerticalStackLayout>
 
-                    <Grid Grid.Row="4" RowDefinitions="Auto, Auto" RowSpacing="8">
-                        <Label Grid.Row="0" Text="Enter Message" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource MainColor}"/>
-                        <Border Grid.Row="1" StrokeShape="RoundRectangle 20" BackgroundColor="{StaticResource EntryBG}" HeightRequest="150" StrokeThickness="0">
-                            <Editor Placeholder="Type here..." PlaceholderColor="{StaticResource Gray400}" TextColor="{StaticResource Black}" Margin="10"/>
+                    <VerticalStackLayout Spacing="8">
+                        <Label Text="Enter Message" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource MainColor}"/>
+                        <Border StrokeShape="RoundRectangle 20" BackgroundColor="{StaticResource EntryBG}" HeightRequest="120" StrokeThickness="0">
+                            <Editor Placeholder="Type here..." PlaceholderColor="{StaticResource Grey400}" TextColor="{StaticResource Black}" AutoSize="Disabled" Margin="10"/>
                         </Border>
-                    </Grid>
+                    </VerticalStackLayout>
 
-                    <Button Grid.Row="5" 
-                     Text="Save" 
-                     BackgroundColor="{StaticResource MainColor}" 
-                     TextColor="{StaticResource Black}" 
-                     FontAttributes="Bold" 
-                     FontSize="18"
-                     CornerRadius="25" 
-                     HeightRequest="60" 
-                     Margin="0,10,0,20"
-                     Clicked="OnSaveClicked"/>
-                </Grid>
+                    <Button Text="Save" BackgroundColor="{StaticResource MainColor}" TextColor="{StaticResource Black}" 
+                            FontAttributes="Bold" FontSize="18" CornerRadius="25" HeightRequest="60" 
+                            Margin="0,10,0,0" Clicked="OnSaveClicked"/>
+
+                </VerticalStackLayout>
             </ScrollView>
         </Frame>
     </Grid>

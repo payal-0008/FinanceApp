@@ -6,9 +6,9 @@
              BackgroundColor="{StaticResource MainColor}"
              NavigationPage.HasNavigationBar="False"
              Title="SecurityPin">
-    <Grid RowDefinitions="Auto,*">
+    <!--<Grid RowDefinitions="Auto,*">
         <Label Text="Security Pin"
-           TextColor="{StaticResource Black}"
+           TextColor="{StaticResource {StaticResource Black}}"
            FontSize="30" 
            VerticalOptions="Center"
            HorizontalOptions="Center"
@@ -20,7 +20,7 @@
 
                 <VerticalStackLayout Grid.Row="0" Spacing="20" VerticalOptions="Center">
                     <Label Text="Enter Security Pin" 
-                       TextColor="{StaticResource Black}" 
+                       TextColor="{StaticResource {StaticResource Black}}" 
                        FontAttributes="Bold" 
                        FontSize="20" 
                        HorizontalTextAlignment="Center"
@@ -28,22 +28,22 @@
 
                     <HorizontalStackLayout HorizontalOptions="Center" Spacing="10">
                         <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
-                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="Transparent" TextColor="{StaticResource Black}"/>
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="{StaticResource transparent}" TextColor="{StaticResource {StaticResource Black}}"/>
                         </Border>
                         <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
-                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="Transparent" TextColor="{StaticResource Black}"/>
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="{StaticResource transparent}" TextColor="{StaticResource {StaticResource Black}}"/>
                         </Border>
                         <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
-                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="Transparent" TextColor="{StaticResource Black}"/>
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="{StaticResource transparent}" TextColor="{StaticResource {StaticResource Black}}"/>
                         </Border>
                         <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
-                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="Transparent" TextColor="{StaticResource Black}"/>
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="{StaticResource transparent}" TextColor="{StaticResource {StaticResource Black}}"/>
                         </Border>
                         <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
-                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="Transparent" TextColor="{StaticResource Black}"/>
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="{StaticResource transparent}" TextColor="{StaticResource {StaticResource Black}}"/>
                         </Border>
                         <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
-                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="Transparent" TextColor="{StaticResource Black}"/>
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" Background="{StaticResource transparent}" TextColor="{StaticResource {StaticResource Black}}"/>
                         </Border>
                     </HorizontalStackLayout>
 
@@ -52,7 +52,7 @@
                         CornerRadius="20"
                         Margin="0,40,0,0"
                         Padding="60,0"
-                        TextColor="{StaticResource Black}"
+                        TextColor="{StaticResource {StaticResource Black}}"
                         FontAttributes="Bold"
                         FontSize="18"
                         HorizontalOptions="Center"
@@ -68,11 +68,11 @@
                         HorizontalOptions="Center"/>
                 </VerticalStackLayout>
 
-                <VerticalStackLayout Grid.Row="1" Spacing="10" Margin="0,0,0,20">
+                <VerticalStackLayout Grid.Row="1" Spacing="10" Margin="0,0,0,40">
                     <Label Text="or sign up with" 
                        FontSize="12"
                        HorizontalOptions="Center"
-                       TextColor="{StaticResource Black}"
+                       TextColor="{StaticResource {StaticResource Black}}"
                        FontAttributes="Bold"/>
 
                     <HorizontalStackLayout Spacing="15" HorizontalOptions="Center">
@@ -83,8 +83,104 @@
                     <Label HorizontalOptions="Center">
                         <Label.FormattedText>
                             <FormattedString>
-                                <Span Text="Don't have an account? " FontSize="12" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                                <Span Text="Don't have an account? " FontSize="12" TextColor="{StaticResource {StaticResource Black}}" FontAttributes="Bold"/>
                                 <Span Text="Sign Up" FontSize="12" TextColor="{StaticResource Blue}" FontAttributes="Bold"/>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </VerticalStackLayout>
+
+            </Grid>
+        </Frame>
+    </Grid>-->
+
+
+    <Grid RowDefinitions="Auto,*">
+        <Label Grid.Row="0" Text="Security Pin"
+               TextColor="{StaticResource Black}"
+               FontSize="28" 
+               VerticalOptions="Center"
+               HorizontalOptions="Center"
+               Margin="0,40"
+               FontAttributes="Bold"/>
+
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" HasShadow="False" Margin="0,0,0,-70">
+            <Grid RowDefinitions="*, Auto" Padding="25">
+
+                <VerticalStackLayout Grid.Row="0" Spacing="25" VerticalOptions="Center">
+                    <Label Text="Enter Security Pin" 
+                           TextColor="{StaticResource Black}" 
+                           FontAttributes="Bold" 
+                           FontSize="20" 
+                           HorizontalTextAlignment="Center"/>
+
+                    <FlexLayout Wrap="NoWrap"  VerticalOptions="Center">
+                        <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="43" WidthRequest="43" StrokeShape="RoundRectangle 20" Margin="2,0,3,0">
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                                   BackgroundColor="{StaticResource transparent}" TextColor="{StaticResource Black}" FontSize="14" FontAttributes="Bold"/>
+                        </Border>
+                        <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="43" WidthRequest="43" StrokeShape="RoundRectangle 20" Margin="0,0,3,0">
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                                   BackgroundColor="{StaticResource transparent}" TextColor="{StaticResource Black}" FontSize="14" FontAttributes="Bold"/>
+                        </Border>
+                        <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="43" WidthRequest="43" StrokeShape="RoundRectangle 20" Margin="0,0,3,0">
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                                   BackgroundColor="{StaticResource transparent}" TextColor="{StaticResource Black}" FontSize="14" FontAttributes="Bold"/>
+                        </Border>
+                        <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="43" WidthRequest="43" StrokeShape="RoundRectangle 20" Margin="0,0,3,0">
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                                   BackgroundColor="{StaticResource transparent}" TextColor="{StaticResource Black}" FontSize="14" FontAttributes="Bold"/>
+                        </Border>
+                        <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="43" WidthRequest="43" StrokeShape="RoundRectangle 20" Margin="0,0,3,0">
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                                   BackgroundColor="{StaticResource transparent}" TextColor="{StaticResource Black}" FontSize="14" FontAttributes="Bold"/>
+                        </Border>
+                        <Border Stroke="{StaticResource MainColor}" StrokeThickness="2" HeightRequest="43" WidthRequest="43" StrokeShape="RoundRectangle 20" >
+                            <Entry Keyboard="Numeric" MaxLength="1" HorizontalTextAlignment="Center" VerticalTextAlignment="Center" 
+                                   BackgroundColor="{StaticResource transparent}" TextColor="{StaticResource Black}"  FontSize="14" FontAttributes="Bold"/>
+                        </Border>
+                    </FlexLayout>
+
+                    <Button Text="Accept"
+                            BackgroundColor="{StaticResource MainColor}"
+                            CornerRadius="25"
+                            HeightRequest="55"
+                            WidthRequest="220"
+                            TextColor="{StaticResource Black}"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            HorizontalOptions="Center"
+                            Margin="0,20,0,0"
+                            Clicked="password"/>
+
+                    <Button Text="Send Again"
+                            BackgroundColor="{StaticResource EntryBG}"
+                            CornerRadius="25"
+                            HeightRequest="55"
+                            WidthRequest="220"
+                            TextColor="{StaticResource IconColor}"
+                            FontAttributes="Bold"
+                            FontSize="18"
+                            HorizontalOptions="Center"/>
+                </VerticalStackLayout>
+
+                <VerticalStackLayout Grid.Row="1" Spacing="15" Margin="0,0,0,60">
+                    <Label Text="or sign up with" 
+                           FontSize="13"
+                           HorizontalOptions="Center"
+                           TextColor="{StaticResource Black}"
+                           FontAttributes="Bold"/>
+
+                    <HorizontalStackLayout Spacing="20" HorizontalOptions="Center">
+                        <Image Source="fb" HeightRequest="35" WidthRequest="35"/>
+                        <Image Source="google.png" HeightRequest="35" WidthRequest="35"/>
+                    </HorizontalStackLayout>
+
+                    <Label HorizontalOptions="Center" Margin="0,10,0,0">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="Don't have an account? " FontSize="13" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                                <Span Text="Sign Up" FontSize="13" TextColor="{StaticResource Blue}" FontAttributes="Bold"/>
                             </FormattedString>
                         </Label.FormattedText>
                     </Label>

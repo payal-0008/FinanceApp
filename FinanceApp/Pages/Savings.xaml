@@ -6,15 +6,15 @@
              BackgroundColor="{StaticResource MainColor}"
              Title="Savings">
     <Grid RowDefinitions="Auto,*">
-        <Grid RowDefinitions="Auto, Auto, Auto, Auto" Padding="25">
-            <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10,20,0">
-                <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+        <VerticalStackLayout Grid.Row="0" Padding="25" Spacing="20">
+            <Grid ColumnDefinitions="Auto, *, Auto">
+                <Image Source="back_arrow.png" HeightRequest="25">
                     <Image.GestureRecognizers>
                         <TapGestureRecognizer Tapped="Back"/>
                     </Image.GestureRecognizers>
                 </Image>
                 <Label Grid.Column="1" Text="Savings" FontSize="22" FontAttributes="Bold" 
-                      TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                       TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
                 <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
                     <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
                         <Image.GestureRecognizers>
@@ -24,112 +24,88 @@
                 </Border>
             </Grid>
 
-            <Grid Grid.Row="1" ColumnDefinitions="*, 2, *" Margin="0,25,0,0">
+            <Grid ColumnDefinitions="*, 1, *" Margin="0,10">
                 <VerticalStackLayout Spacing="5" HorizontalOptions="Center">
-                    <HorizontalStackLayout>
-                        <Image Source="up.png" HeightRequest="15" WidthRequest="15"/>
-                        <Label Text="Total Balance" FontSize="15" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                    <HorizontalStackLayout Spacing="5">
+                        <Image Source="up.png" HeightRequest="15"/>
+                        <Label Text="Total Balance" FontSize="14" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
                     </HorizontalStackLayout>
-                    <Label Text="$7,783.00" FontSize="26" FontAttributes="Bold" TextColor="{StaticResource White}"/>
+                    <Label Text="$7,783.00" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource White}"/>
                 </VerticalStackLayout>
 
-                <BoxView Grid.Column="1" WidthRequest="1" BackgroundColor="{StaticResource White}" Margin="0,10"/>
+                <BoxView Grid.Column="1" WidthRequest="1" BackgroundColor="{StaticResource White}" Margin="0,5"/>
 
                 <VerticalStackLayout Grid.Column="2" Spacing="5" HorizontalOptions="Center">
-                    <HorizontalStackLayout Spacing="2">
-                        <Image Source="down_arrows.png" HeightRequest="9" WidthRequest="9"/>
-                        <Label Text="Total Expense" FontSize="15" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                    <HorizontalStackLayout Spacing="5">
+                        <Image Source="down_arrows.png" HeightRequest="10"/>
+                        <Label Text="Total Expense" FontSize="14" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
                     </HorizontalStackLayout>
-                    <Label Text="-$1.187.40" FontSize="26" FontAttributes="Bold" TextColor="{StaticResource Blue}"/>
+                    <Label Text="-$1,187.40" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource Blue}"/>
                 </VerticalStackLayout>
             </Grid>
 
-            <Grid Grid.Row="2" Margin="20,25,20,10">
+            <Grid Margin="10,0">
                 <Border HeightRequest="40" StrokeShape="RoundRectangle 20" StrokeThickness="0" BackgroundColor="{StaticResource White}">
-                    <Label Text="$20,000.00" 
-                       TextColor="{StaticResource Black}" 
-                       FontSize="14" 
-                       FontAttributes="Bold"
-                       HorizontalOptions="End" 
-                       VerticalOptions="Center" 
-                       Margin="0,0,20,0"/> 
+                    <Label Text="$20,000.00" TextColor="{StaticResource Black}" FontSize="13" FontAttributes="Bold" 
+                           HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,15,0"/>
                 </Border>
-
-                <Border HorizontalOptions="Start" 
-                    WidthRequest="100" 
-                    HeightRequest="40" 
-                    StrokeShape="RoundRectangle 20" 
-                    StrokeThickness="0" 
-                    BackgroundColor="{StaticResource Black}">
-                    <Label Text="30%" 
-                        TextColor="{StaticResource White}" 
-                        HorizontalOptions="Center" 
-                        VerticalOptions="Center" 
-                        FontAttributes="Bold"/>
+                <Border HorizontalOptions="Start" WidthRequest="110" HeightRequest="40" 
+                        StrokeShape="RoundRectangle 20" StrokeThickness="0" BackgroundColor="{StaticResource Black}">
+                    <Label Text="30%" TextColor="{StaticResource White}" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
                 </Border>
             </Grid>
 
-            <HorizontalStackLayout Grid.Row="3" Spacing="10" VerticalOptions="Center" HorizontalOptions="Center">
-                <Image Source="check_icon.png" HeightRequest="18" WidthRequest="18"/>
-                <Label Text="30% Of Your Expenses, Looks Good." 
-                    TextColor="{StaticResource Black}" 
-                    FontSize="15"/>
+            <HorizontalStackLayout Spacing="10" HorizontalOptions="Center">
+                <Image Source="check_icon.png" HeightRequest="18"/>
+                <Label Text="30% Of Your Expenses, Looks Good." TextColor="{StaticResource Black}" FontSize="14"/>
             </HorizontalStackLayout>
-        </Grid>
+        </VerticalStackLayout>
 
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,10,0,-70" Padding="0" HasShadow="False">
+            <ScrollView Padding="25,40">
+                <Grid ColumnDefinitions="*,*,*" RowDefinitions="Auto,Auto" ColumnSpacing="15" RowSpacing="30">
 
-        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,0,0,-70">
-            <ScrollView>
-                <VerticalStackLayout Padding="25,30,25,0">
+                    <VerticalStackLayout Grid.Row="0" Grid.Column="0" Spacing="10">
+                        <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
+                            <Image Source="aeroplanes.png" HeightRequest="55"/>
+                        </Border>
+                        <Label Text="Travel" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTravelClick"/>
+                        </VerticalStackLayout.GestureRecognizers>
+                    </VerticalStackLayout>
 
-                    <Grid ColumnDefinitions="*,*,*" 
-                       RowDefinitions="Auto,Auto,Auto" 
-                       ColumnSpacing="15" 
-                       RowSpacing="25">
+                    <VerticalStackLayout Grid.Row="0" Grid.Column="1" Spacing="10">
+                        <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
+                            <Image Source="home.png" HeightRequest="40"/>
+                        </Border>
+                        <Label Text="New House" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnHouseClick"/>
+                        </VerticalStackLayout.GestureRecognizers>
+                    </VerticalStackLayout>
 
-                        <VerticalStackLayout Grid.Row="0" Grid.Column="0" Spacing="8">
-                            <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
-                                <Image Source="aeroplanes.png" HeightRequest="65" HorizontalOptions="Center" VerticalOptions="Center"/>
-                            </Border>
-                            <Label Text="Travel" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                            <VerticalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnTravelClick"/>
-                            </VerticalStackLayout.GestureRecognizers>
-                        </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Row="0" Grid.Column="2" Spacing="10">
+                        <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
+                            <Image Source="car.png" HeightRequest="50"/>
+                        </Border>
+                        <Label Text="Car" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnCarClick"/>
+                        </VerticalStackLayout.GestureRecognizers>
+                    </VerticalStackLayout>
 
-                        <VerticalStackLayout Grid.Row="0" Grid.Column="1" Spacing="8">
-                            <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
-                                <Image Source="home.png" HeightRequest="45" HorizontalOptions="Center" VerticalOptions="Center"/>
-                            </Border>
-                            <Label Text="New House" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                            <VerticalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnHouseClick"/>
-                            </VerticalStackLayout.GestureRecognizers>
-                        </VerticalStackLayout>
+                    <VerticalStackLayout Grid.Row="1" Grid.Column="0" Spacing="10">
+                        <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
+                            <Image Source="wedding_rings.png" HeightRequest="40"/>
+                        </Border>
+                        <Label Text="Weddings" HorizontalOptions="Center" FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                        <VerticalStackLayout.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnWeddingClick"/>
+                        </VerticalStackLayout.GestureRecognizers>
+                    </VerticalStackLayout>
 
-                        <VerticalStackLayout Grid.Row="0" Grid.Column="2" Spacing="8">
-                            <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
-                                <Image Source="car.png" HeightRequest="85" HorizontalOptions="Center" VerticalOptions="Center"/>
-                            </Border>
-                            <Label Text="Car" HorizontalOptions="Center" 
-                                  FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                            <VerticalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnCarClick"/>
-                            </VerticalStackLayout.GestureRecognizers>
-                        </VerticalStackLayout>
-
-                        <VerticalStackLayout Grid.Row="1" Grid.Column="0" Spacing="8">
-                            <Border StrokeShape="RoundRectangle 25" HeightRequest="90" WidthRequest="90" BackgroundColor="{StaticResource MainColor}" StrokeThickness="0">
-                                <Image Source="wedding_rings.png" HeightRequest="45" HorizontalOptions="Center" VerticalOptions="Center"/>
-                            </Border>
-                            <Label Text="Weddings" HorizontalOptions="Center" 
-                                FontSize="14" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                            <VerticalStackLayout.GestureRecognizers>
-                                <TapGestureRecognizer Tapped="OnWeddingClick"/>
-                            </VerticalStackLayout.GestureRecognizers>
-                        </VerticalStackLayout>
-                        </Grid>
-                </VerticalStackLayout>
+                </Grid>
             </ScrollView>
         </Frame>
     </Grid>
