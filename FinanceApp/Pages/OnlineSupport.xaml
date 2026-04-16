@@ -2,18 +2,19 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinanceApp.Pages.OnlineSupport"
+             xmlns:models="clr-namespace:FinanceApp.Models"
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource MainColor}"
              Title="OnlineSupport">
     <Grid RowDefinitions="Auto,*">
         <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
-            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+            <Image Source="back_arrow.png" HeightRequest="25">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Back"/>
                 </Image.GestureRecognizers>
             </Image>
             <Label Grid.Column="1" Text="Online Support" FontSize="22" FontAttributes="Bold" 
-             TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                   TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
             <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
                 <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
                     <Image.GestureRecognizers>
@@ -22,91 +23,54 @@
                 </Image>
             </Border>
         </Grid>
-        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,30,0,-70">
-            <Grid RowDefinitions="*, Auto" Padding="20">
-                <VerticalStackLayout  Spacing="15">
+
+        <Frame Grid.Row="1" CornerRadius="60" BackgroundColor="{StaticResource Light}" Margin="0,30,0,-70" Padding="0" HasShadow="False">
+            <Grid RowDefinitions="*, Auto" Padding="25,30,25,85">
+
+                <VerticalStackLayout Grid.Row="0" Spacing="15">
                     <Label Text="Active Chats" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
 
-                    <Frame BackgroundColor="{StaticResource EntryBG}" CornerRadius="20" HasShadow="False" BorderColor="{StaticResource transparent}">
-                        <Grid ColumnDefinitions="50, *" ColumnSpacing="15">
-                            <Border Grid.Column="0" 
-                                StrokeShape="RoundRectangle 15" 
-                                StrokeThickness="0"
-                                HeightRequest="50" 
-                                WidthRequest="50"
-                                BackgroundColor="{StaticResource MainColor}"
-                                HorizontalOptions="Center"
-                                VerticalOptions="Center">
-                                <Image Source="customer_support.png" 
-                                   Aspect="AspectFill"
-                                   HeightRequest="43" 
-                                   WidthRequest="43" />
+                    <Border BackgroundColor="{StaticResource EntryBG}" StrokeShape="RoundRectangle 20" StrokeThickness="0" Padding="15">
+                        <Grid ColumnDefinitions="55, *" ColumnSpacing="15">
+                            <Border Grid.Column="0" StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource MainColor}" HeightRequest="55" WidthRequest="55">
+                                <Image Source="customer_support.png" HeightRequest="35" WidthRequest="35" HorizontalOptions="Center" VerticalOptions="Center"/>
                             </Border>
-                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
-                                <Label Text="Support Assistant" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                                <Label Text="Hello! I'm here to assist you" FontSize="13" TextColor="{StaticResource Black}"/>
-                                <Label Text="2 Min Ago" FontSize="10" HorizontalOptions="End" BackgroundColor="{StaticResource White}" Padding="8,2" TextColor="{StaticResource Black}"/>
+                            <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                <Label Text="Support Assistant" FontAttributes="Bold" TextColor="{StaticResource Black}" FontSize="16"/>
+                                <Label Text="Hello! I'm here to assist you" FontSize="13" TextColor="Gray"/>
+                                <Label Text="2 Min Ago" FontSize="10" HorizontalOptions="End" BackgroundColor="{StaticResource White}" Padding="8,2" TextColor="Black" Margin="0,5,0,0"/>
                             </VerticalStackLayout>
                         </Grid>
-                    </Frame>
+                    </Border>
 
-                    <Label Text="Ended Chats" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Black}" Margin="0,10,0,0"/>
+                    <Label Text="Ended Chats" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Black}" Margin="0,15,0,5"/>
 
-                    <CollectionView x:Name="EndedChatsCollection">
+                    <CollectionView x:Name="EndedChatsCollection" VerticalOptions="FillAndExpand">
                         <CollectionView.ItemsLayout>
                             <LinearItemsLayout Orientation="Vertical" ItemSpacing="12"/>
                         </CollectionView.ItemsLayout>
                         <CollectionView.ItemTemplate>
-                            <DataTemplate>
-                                <Frame BackgroundColor="{StaticResource EntryBG}" CornerRadius="20" HasShadow="False" BorderColor="{StaticResource transparent}">
-                                    <Grid ColumnDefinitions="50, *" ColumnSpacing="15">
-
-                                        <Border Grid.Column="0" 
-                                             StrokeShape="RoundRectangle 15" 
-                                             StrokeThickness="0"
-                                             HeightRequest="50" 
-                                             WidthRequest="50"
-                                             BackgroundColor="{StaticResource MainColor}"
-                                             HorizontalOptions="Center"
-                                             VerticalOptions="Center">
-
-                                            <Image Source="customer_support.png" 
-                                                  Aspect="AspectFit"
-                                                  HeightRequest="30" 
-                                                  WidthRequest="30"
-                                                  HorizontalOptions="Center"
-                                                  VerticalOptions="Center"/>
+                            <DataTemplate x:DataType="models:ChatItem">
+                                <Border BackgroundColor="{StaticResource EntryBG}" StrokeShape="RoundRectangle 20" StrokeThickness="0" Padding="15">
+                                    <Grid ColumnDefinitions="55, *" ColumnSpacing="15">
+                                        <Border Grid.Column="0" StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource MainColor}" HeightRequest="55" WidthRequest="55">
+                                            <Image Source="customer_support.png" HeightRequest="30" WidthRequest="30" HorizontalOptions="Center" VerticalOptions="Center"/>
                                         </Border>
-
-                                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center">
-                                            <Label Text="{Binding Title}" 
-                                               FontAttributes="Bold" 
-                                               TextColor="{StaticResource Black}"/>
-
-                                            <Label Text="{Binding Message}" 
-                                                 FontSize="13" 
-                                                 TextColor="{StaticResource Black}" 
-                                                 MaxLines="1" 
-                                                 LineBreakMode="TailTruncation"/>
-
-                                            <Label Text="{Binding Date}" 
-                                                FontSize="10" 
-                                                HorizontalOptions="End" 
-                                                BackgroundColor="{StaticResource White}" 
-                                                Padding="8,2" 
-                                                TextColor="{StaticResource Black}"
-                                                Margin="0,5,0,0"/>
+                                        <VerticalStackLayout Grid.Column="1" VerticalOptions="Center" Spacing="2">
+                                            <Label Text="{Binding Title}" FontAttributes="Bold" TextColor="{StaticResource Black}" FontSize="15"/>
+                                            <Label Text="{Binding Message}" FontSize="13" TextColor="Gray" MaxLines="1" LineBreakMode="TailTruncation"/>
+                                            <Label Text="{Binding Date}" FontSize="10" HorizontalOptions="End" BackgroundColor="{StaticResource White}" Padding="8,2" TextColor="{StaticResource Black}" Margin="0,5,0,0"/>
                                         </VerticalStackLayout>
-
                                     </Grid>
-                                </Frame>
+                                </Border>
                             </DataTemplate>
                         </CollectionView.ItemTemplate>
                     </CollectionView>
                 </VerticalStackLayout>
 
-                <Button Grid.Row="1" Text="Start Another Chat" CornerRadius="25" HeightRequest="55" Margin="0,5,0,70"
-                BackgroundColor="{StaticResource MainColor}" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                <Button Grid.Row="1" Text="Start Another Chat" CornerRadius="25" HeightRequest="55" 
+                        BackgroundColor="{StaticResource MainColor}" TextColor="{StaticResource Black}" FontAttributes="Bold"
+                        Margin="0,15,0,0" Clicked="OnStartChat"/>
             </Grid>
         </Frame>
     </Grid>

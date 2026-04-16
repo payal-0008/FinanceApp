@@ -5,60 +5,84 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource MainColor}"
              Title="Notification">
-    <Grid RowDefinitions="Auto,*" Padding="0,20,0,0" RowSpacing="10">
-        <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" Padding="20,0">
-            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="{StaticResource transparent}">
+   
+    <Grid RowDefinitions="Auto,*" Padding="0,20,0,0">
+        <Grid Grid.Row="0" ColumnDefinitions="Auto,*,Auto" Padding="20,0,20,10">
+            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25" BackgroundColor="Transparent">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Back"/>
                 </Image.GestureRecognizers>
             </Image>
+
             <Label Grid.Column="1"
-                   Text="Notifications"
-                   FontSize="20"
-                   FontAttributes="Bold"
-                   VerticalTextAlignment="Center"
-                   HorizontalTextAlignment="Center"
-                   TextColor="{StaticResource Black}"/>
-            <Frame Grid.Column="2"
-                   CornerRadius="100"
-                   Padding="10"
-                   BackgroundColor="{StaticResource White}"
-                   VerticalOptions="Center">
+               Text="Notifications"
+               FontSize="20"
+               FontAttributes="Bold"
+               VerticalTextAlignment="Center"
+               HorizontalTextAlignment="Center"
+               TextColor="{StaticResource Black}"/>
+
+            <Border Grid.Column="2"
+                StrokeShape="RoundRectangle 22"
+                Padding="10"
+                HeightRequest="45"
+                WidthRequest="45"
+                BackgroundColor="{StaticResource White}"
+                VerticalOptions="Center"
+                StrokeThickness="0">
                 <Image Source="bell.png"
-                       HeightRequest="20"
-                       WidthRequest="20"/>
-            </Frame>
+                   HeightRequest="20"
+                   WidthRequest="20"/>
+            </Border>
         </Grid>
-        <Frame Grid.Row="1" CornerRadius="30" Padding="20" BackgroundColor="{StaticResource White}" Margin="0,20,0,-70">
-            <CollectionView ItemsSource="{Binding NotificationList }"
-                            SelectionMode="None">
-                <CollectionView.ItemTemplate>
-                    <DataTemplate>
-                        <Frame Padding="12" Margin="5" CornerRadius="15">
-                            <Grid ColumnDefinitions="50,*,Auto" ColumnSpacing="10">
-                                <Image Source="{Binding Image}"
-                                       HeightRequest="30"
-                                       WidthRequest="30"
-                                       VerticalOptions="Start"/>
-                                <VerticalStackLayout Grid.Column="1" Spacing="2">
+
+        <Frame Grid.Row="1" 
+           CornerRadius="30" 
+           Padding="0" 
+           BackgroundColor="{StaticResource White}" 
+           Margin="0,20,0,-70" 
+           HasShadow="False">
+
+            <CollectionView ItemsSource="{Binding NotificationList}"
+                        SelectionMode="None" Margin="10,15,10,18">
+                <CollectionView.ItemTemplate >
+                    <DataTemplate >
+                        <Border Padding="10" 
+                                Margin="0,0,0,5"
+                            StrokeShape="RoundRectangle 15" 
+                            BackgroundColor="{StaticResource White}"
+                            StrokeThickness="0.5"
+                            Stroke="{StaticResource Gray400}">
+                            <Grid ColumnDefinitions="45,*,Auto" ColumnSpacing="12">
+                                <Image Grid.Column="0" 
+                                   Source="{Binding Image}"
+                                   HeightRequest="30"
+                                   WidthRequest="30"
+                                   VerticalOptions="Center"
+                                   HorizontalOptions="Center"/>
+
+                                <VerticalStackLayout Grid.Column="1" Spacing="2" VerticalOptions="Center">
                                     <Label Text="{Binding Title}"
-                                           FontSize="15"
-                                           FontAttributes="Bold"
-                                           TextColor="{StaticResource Black}"/>
+                                       FontSize="15"
+                                       FontAttributes="Bold"
+                                       TextColor="{StaticResource Black}"/>
                                     <Label Text="{Binding SubTitle}"
-                                           FontSize="12"
-                                          TextColor="{StaticResource Gray400}"/>
+                                       FontSize="12"
+                                       TextColor="{StaticResource Gray400}"
+                                       LineBreakMode="WordWrap"/>
                                     <Label Text="{Binding Item}"
-                                           FontSize="11"
-                                           TextColor="{StaticResource Blue}"/>
-                                </VerticalStackLayout>
-                                <Label Grid.Column="2"
-                                       Text="{Binding Date}"
                                        FontSize="11"
-                                       VerticalOptions="End"
                                        TextColor="{StaticResource Blue}"/>
+                                </VerticalStackLayout>
+
+                                <Label Grid.Column="2"
+                                   Text="{Binding Date}"
+                                   FontSize="10"
+                                   VerticalOptions="Start"
+                                   TextColor="{StaticResource Blue}"
+                                   Margin="0,5,0,0"/>
                             </Grid>
-                        </Frame>
+                        </Border>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
             </CollectionView>

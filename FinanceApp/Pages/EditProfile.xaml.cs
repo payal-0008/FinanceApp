@@ -16,6 +16,7 @@ public partial class EditProfile : ContentPage
     }
     private async void updateprofile(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new Profile());
+        await DisplayAlert("Success", "Profile Updated Successfully!", "OK");
+        await Navigation.PopAsync();
     }
 }

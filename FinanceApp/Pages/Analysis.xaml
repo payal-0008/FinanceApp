@@ -5,5 +5,123 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource MainColor}"
              Title="Analysis">
-  
+    <Grid RowDefinitions="Auto,*">
+        <VerticalStackLayout Padding="20" Spacing="10">
+            <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
+                <Image Source="back_arrow.png" HeightRequest="25">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Back"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Column="1" Text="Analysis" FontSize="22" FontAttributes="Bold" 
+             TextColor="Black" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Border Grid.Column="2" BackgroundColor="White" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                    <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="notification"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Border>
+            </Grid>
+
+            <Grid ColumnDefinitions="*, 1, *" Margin="0,10">
+                <VerticalStackLayout Spacing="2" HorizontalOptions="Center">
+                    <HorizontalStackLayout Spacing="5">
+                        <Image Source="up.png" HeightRequest="15" WidthRequest="15"/>
+                        <Label Text="Total Balance" FontSize="13" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                    </HorizontalStackLayout>
+                    <Label Text="$7,783.00" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource White}"/>
+                </VerticalStackLayout>
+                <BoxView Grid.Column="1" WidthRequest="1" BackgroundColor="{StaticResource White}" Margin="0,5" Opacity="0.4"/>
+                <VerticalStackLayout Grid.Column="2" Spacing="2" HorizontalOptions="Center">
+                    <HorizontalStackLayout Spacing="5">
+                        <Image Source="down_arrows.png" HeightRequest="10" WidthRequest="10"/>
+                        <Label Text="Total Expense" FontSize="13" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
+                    </HorizontalStackLayout>
+                    <Label Text="-$1,187.40" FontSize="24" FontAttributes="Bold" TextColor="{StaticResource Blue}"/>
+                </VerticalStackLayout>
+            </Grid>
+
+            <Grid Margin="0,15">
+                <Border HeightRequest="40" StrokeShape="RoundRectangle 20" StrokeThickness="0" BackgroundColor="{StaticResource White}">
+                    <Label Text="$20,000.00" TextColor="{StaticResource Black}" FontSize="13" FontAttributes="Bold" HorizontalOptions="End" VerticalOptions="Center" Margin="0,0,20,0"/>
+                </Border>
+                <Border HorizontalOptions="Start" WidthRequest="110" HeightRequest="40" StrokeShape="RoundRectangle 20" StrokeThickness="0" BackgroundColor="{StaticResource Black}">
+                    <Label Text="30%" TextColor="{StaticResource White}" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                </Border>
+            </Grid>
+        </VerticalStackLayout>
+
+        <Frame Grid.Row="1" CornerRadius="45" BackgroundColor="{StaticResource Light}" 
+               Margin="0,5,0,-70" HasShadow="False">
+            <ScrollView>
+                <VerticalStackLayout Padding="25,30,25,100" Spacing="25">
+
+                    <Border BackgroundColor="{StaticResource EntryBG}" StrokeShape="RoundRectangle 25" StrokeThickness="0" HeightRequest="55" Padding="5">
+                        <Grid ColumnDefinitions="*, *, *, *">
+                            <Border Grid.Column="0" BackgroundColor="{StaticResource MainColor}" StrokeShape="RoundRectangle 20" StrokeThickness="0">
+                                <Label Text="Daily" TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center" FontAttributes="Bold"/>
+                            </Border>
+                            <Label Grid.Column="1" Text="Weekly" TextColor="{StaticResource Gray600}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Grid.Column="2" Text="Monthly" TextColor="{StaticResource Gray600}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                            <Label Grid.Column="3" Text="Year" TextColor="{StaticResource Gray600}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Grid>
+                    </Border>
+
+                    <Border StrokeShape="RoundRectangle 30" BackgroundColor="{StaticResource EntryBG}" StrokeThickness="0" Padding="20">
+                        <VerticalStackLayout Spacing="15">
+                            <Grid ColumnDefinitions="*, Auto, Auto">
+                                <Label Text="Income &amp; Expenses" FontAttributes="Bold" FontSize="18" TextColor="{StaticResource Black}"/>
+                                <Image Grid.Column="1" Source="search_icon.png" HeightRequest="20" Margin="0,0,10,0"/>
+                                <Image Grid.Column="2" Source="calendar.png" HeightRequest="20"/>
+                            </Grid>
+
+                            <Image Source="chart_placeholder.png" HeightRequest="180" Aspect="AspectFit" Margin="0,10"/>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Grid ColumnDefinitions="*, *" ColumnSpacing="20">
+                        <VerticalStackLayout Grid.Column="0" HorizontalOptions="Center" Spacing="5">
+                            <Image Source="up.png" HeightRequest="30"/>
+                            <Label Text="Income" HorizontalOptions="Center" TextColor="{StaticResource Gray600}"/>
+                            <Label Text="$4,120.00" FontAttributes="Bold" FontSize="20" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                        <VerticalStackLayout Grid.Column="1" HorizontalOptions="Center" Spacing="5" VerticalOptions="Center">
+                            <Image Source="down_arrows.png" HeightRequest="20"/>
+                            <Label Text="Expense" HorizontalOptions="Center" TextColor="{StaticResource Gray600}"/>
+                            <Label Text="$1,187.40" FontAttributes="Bold" FontSize="20" TextColor="{StaticResource Blue}" HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+                    </Grid>
+
+                    <Label Text="My Targets" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Black}" Margin="0,10,0,0"/>
+
+                    <FlexLayout Wrap="Wrap" JustifyContent="SpaceBetween" AlignItems="Center">
+                        <Border WidthRequest="160" HeightRequest="180" StrokeShape="RoundRectangle 30" 
+                        BackgroundColor="{StaticResource MainColor}" StrokeThickness="0" Margin="0,0,0,15">
+                            <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+                                <Grid HeightRequest="100" WidthRequest="100">
+                                    <Ellipse Stroke="{StaticResource White}" StrokeThickness="4" Opacity="0.7"/>
+                                    <Label Text="30%" TextColor="{StaticResource White}" FontAttributes="Bold" FontSize="20" 
+                                   HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Grid>
+                                <Label Text="Travel" TextColor="{StaticResource White}" HorizontalOptions="Center" FontAttributes="Bold"/>
+                            </VerticalStackLayout>
+                        </Border>
+
+                        <Border WidthRequest="160" HeightRequest="180" StrokeShape="RoundRectangle 30" 
+                        BackgroundColor="{StaticResource MainColor}" StrokeThickness="0" Margin="0,0,0,15">
+                            <VerticalStackLayout VerticalOptions="Center" Spacing="10">
+                                <Grid HeightRequest="100" WidthRequest="100">
+                                    <Ellipse Stroke="{StaticResource White}" StrokeThickness="4" Opacity="0.7"/>
+                                    <Label Text="50%" TextColor="{StaticResource White}" FontAttributes="Bold" FontSize="20" 
+                                   HorizontalOptions="Center" VerticalOptions="Center"/>
+                                </Grid>
+                                <Label Text="Car" TextColor="{StaticResource White}" HorizontalOptions="Center" FontAttributes="Bold"/>
+                            </VerticalStackLayout>
+                        </Border>
+                    </FlexLayout>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Frame>
+    </Grid>
 </ContentPage>

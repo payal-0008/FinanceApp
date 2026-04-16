@@ -5,15 +5,16 @@
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource MainColor}"
              Title="EditProfile">
+  
     <Grid RowDefinitions="Auto,*">
         <Grid Grid.Row="0" ColumnDefinitions="Auto, *, Auto" Padding="20,10">
-            <Image Grid.Column="0" Source="back_arrow.png" HeightRequest="25">
+            <Image Source="back_arrow.png" HeightRequest="25">
                 <Image.GestureRecognizers>
                     <TapGestureRecognizer Tapped="Back"/>
                 </Image.GestureRecognizers>
             </Image>
             <Label Grid.Column="1" Text="Edit My Profile" FontSize="22" FontAttributes="Bold" 
-               TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                   TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
             <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
                 <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
                     <Image.GestureRecognizers>
@@ -23,17 +24,17 @@
             </Border>
         </Grid>
 
-        <Frame Grid.Row="1" CornerRadius="40" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-70" HasShadow="False">
+        <Frame Grid.Row="1" CornerRadius="40" BackgroundColor="{StaticResource Light}" Margin="0,20,0,-70" HasShadow="False" Padding="0">
             <ScrollView>
-                <VerticalStackLayout Spacing="10" Padding="20,0">
+                <VerticalStackLayout Spacing="12" Padding="25,30,25,100">
 
                     <Grid HeightRequest="130" WidthRequest="130" HorizontalOptions="Center">
-                        <Border HeightRequest="130" WidthRequest="130" StrokeShape="RoundRectangle 65" StrokeThickness="5" Stroke="{StaticResource Light}">
+                        <Border HeightRequest="130" WidthRequest="130" StrokeShape="RoundRectangle 65" StrokeThickness="5" Stroke="Transparent">
                             <Image Source="john_profile.png" Aspect="AspectFill"/>
                         </Border>
-                        <Border HeightRequest="35" WidthRequest="35" BackgroundColor="{StaticResource MainColor}" 
-                            StrokeShape="RoundRectangle 17" VerticalOptions="End" HorizontalOptions="End">
-                            <Image Source="camera.png" HeightRequest="18" VerticalOptions="Center"/>
+                        <Border HeightRequest="38" WidthRequest="38" BackgroundColor="{StaticResource MainColor}" 
+                                StrokeShape="RoundRectangle 19" VerticalOptions="End" HorizontalOptions="End" StrokeThickness="0">
+                            <Image Source="camera.png" HeightRequest="18" VerticalOptions="Center" HorizontalOptions="Center"/>
                         </Border>
                     </Grid>
 
@@ -47,44 +48,47 @@
                         </Label.FormattedText>
                     </Label>
 
-                    <Label Text="Account Settings" FontSize="20" FontAttributes="Bold" TextColor="{StaticResource Black}" Margin="0,10,0,5"/>
+                    <Label Text="Account Settings" FontSize="18" FontAttributes="Bold" TextColor="{StaticResource Black}" Margin="0,15,0,0"/>
 
                     <VerticalStackLayout Spacing="10">
-                        <Label Text="Username" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                        <Frame Padding="15,2" BackgroundColor="{StaticResource EntryBG}" CornerRadius="15">
-                            <Entry Placeholder="John Smith" TextColor="{StaticResource Black}" FontSize="15" PlaceholderColor="{StaticResource Gray400}"/>
-                        </Frame>
+                        <Label Text="Username" FontAttributes="Bold" TextColor="{StaticResource Black}" FontSize="14"/>
+                        <Border BackgroundColor="{StaticResource EntryBG}" StrokeShape="RoundRectangle 15" StrokeThickness="0" HeightRequest="55" Padding="15,0">
+                            <Entry Placeholder="John Smith" TextColor="{StaticResource Black}" FontSize="15" VerticalOptions="Center"/>
+                        </Border>
 
-                        <Label Text="Phone" FontAttributes="Bold" TextColor="{StaticResource Black}" Margin="0,5,0,0"/>
-                        <Frame Padding="15,2" BackgroundColor="{StaticResource EntryBG}" CornerRadius="15">
-                            <Entry Placeholder="+44 555 5555 55" TextColor="{StaticResource Black}" Keyboard="Telephone" PlaceholderColor="{StaticResource Gray400}"/>
-                        </Frame>
+                        <Label Text="Phone" FontAttributes="Bold" TextColor="{StaticResource Black}" FontSize="14" Margin="0,5,0,0"/>
+                        <Border BackgroundColor="{StaticResource EntryBG}" StrokeShape="RoundRectangle 15" StrokeThickness="0" HeightRequest="55" Padding="15,0">
+                            <Entry Placeholder="+44 555 5555 55" TextColor="{StaticResource Black}" Keyboard="Telephone" FontSize="15" VerticalOptions="Center"/>
+                        </Border>
 
-                        <Label Text="Email Address" FontAttributes="Bold" TextColor="#1B3139" Margin="0,5,0,0"/>
-                        <Frame Padding="15,2" BackgroundColor="{StaticResource EntryBG}" CornerRadius="15">
-                            <Entry Placeholder="example@example.com" TextColor="{StaticResource Black}" Keyboard="Email" PlaceholderColor="{StaticResource Gray400}"/>
-                        </Frame>
+                        <Label Text="Email Address" FontAttributes="Bold" TextColor="{StaticResource Black}" FontSize="14" Margin="0,5,0,0"/>
+                        <Border BackgroundColor="{StaticResource EntryBG}" StrokeShape="RoundRectangle 15" StrokeThickness="0" HeightRequest="55" Padding="15,0">
+                            <Entry Placeholder="example@example.com" TextColor="{StaticResource Black}" Keyboard="Email" FontSize="15" VerticalOptions="Center"/>
+                        </Border>
                     </VerticalStackLayout>
 
-                    <Grid ColumnDefinitions="*, Auto" Margin="0,10,0,0">
-                        <Label Text="Push Notifications" VerticalOptions="Center" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                        <Switch Grid.Column="1" IsToggled="True" OnColor="{StaticResource MainColor}" OffColor="{StaticResource EntryBG}"/>
-                    </Grid>
+                    <VerticalStackLayout Spacing="15" Margin="0,10,0,0">
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Label Text="Push Notifications" VerticalOptions="Center" FontAttributes="Bold" TextColor="{StaticResource Black}" FontSize="14"/>
+                            <Switch Grid.Column="1" IsToggled="True" OnColor="{StaticResource MainColor}" ThumbColor="{StaticResource White}"/>
+                        </Grid>
 
-                    <Grid ColumnDefinitions="*, Auto">
-                            <Label Text="Turn Dark Theme" VerticalOptions="Center" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
-                            <Switch Grid.Column="1" IsToggled="False" OnColor="{StaticResource MainColor}" OffColor="{StaticResource EntryBG}"/>
-                    </Grid>
+                        <Grid ColumnDefinitions="*, Auto">
+                            <Label Text="Turn Dark Theme" VerticalOptions="Center" FontAttributes="Bold" TextColor="{StaticResource Black}" FontSize="14"/>
+                            <Switch Grid.Column="1" IsToggled="False" OnColor="{StaticResource MainColor}" ThumbColor="{StaticResource White}"/>
+                        </Grid>
+                    </VerticalStackLayout>
 
                     <Button Text="Update Profile" 
-                        BackgroundColor="{StaticResource MainColor}" 
-                        TextColor="White" 
-                        CornerRadius="25" 
-                        HeightRequest="55" 
-                        FontSize="18" 
-                        FontAttributes="Bold"
-                        Margin="0,20,0,20"
-                        Clicked="updateprofile"/>
+                            BackgroundColor="{StaticResource MainColor}" 
+                            TextColor="{StaticResource Black}" 
+                            CornerRadius="25" 
+                            HeightRequest="55" 
+                            FontSize="18" 
+                            FontAttributes="Bold"
+                            Margin="0,15,0,0"
+                            Clicked="updateprofile"/>
+
                 </VerticalStackLayout>
             </ScrollView>
         </Frame>
