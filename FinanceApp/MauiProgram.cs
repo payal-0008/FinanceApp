@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using Mopups.Hosting;
-
+using FinanceApp.Services;
 namespace FinanceApp
 {
     public static class MauiProgram
@@ -16,6 +16,7 @@ namespace FinanceApp
                     fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
                     fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
                 });
+            builder.Services.AddSingleton<ApiService>();
             Microsoft.Maui.Handlers.EntryHandler.Mapper.AppendToMapping("NoUnderline", (handler, view) =>
             {
 #if ANDROID

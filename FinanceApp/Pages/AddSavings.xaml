@@ -50,21 +50,21 @@
                     <VerticalStackLayout Spacing="8">
                         <Label Text="Amount" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}"/>
                         <Border StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource EntryBG}" HeightRequest="55" StrokeThickness="0">
-                            <Entry Placeholder="$ 0.00" PlaceholderColor="{StaticResource Grey400}" TextColor="{StaticResource Black}" Keyboard="Numeric" VerticalOptions="Center" Margin="15,0"/>
+                            <Entry Placeholder="$ 0.00" PlaceholderColor="{StaticResource Gray400}" TextColor="{StaticResource Black}" Keyboard="Numeric" VerticalOptions="Center" Margin="15,0"/>
                         </Border>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout Spacing="8">
                         <Label Text="Savings Title" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource Black}"/>
                         <Border StrokeShape="RoundRectangle 15" BackgroundColor="{StaticResource EntryBG}" HeightRequest="55" StrokeThickness="0">
-                            <Entry Placeholder="e.g. Dream Car" PlaceholderColor="Grey" TextColor="{StaticResource Black}" VerticalOptions="Center" Margin="15,0"/>
+                            <Entry Placeholder="e.g. Dream Car" PlaceholderColor="{StaticResource Gray400}" TextColor="{StaticResource Black}" VerticalOptions="Center" Margin="15,0"/>
                         </Border>
                     </VerticalStackLayout>
 
                     <VerticalStackLayout Spacing="8">
                         <Label Text="Enter Message" FontAttributes="Bold" FontSize="16" TextColor="{StaticResource MainColor}"/>
                         <Border StrokeShape="RoundRectangle 20" BackgroundColor="{StaticResource EntryBG}" HeightRequest="120" StrokeThickness="0">
-                            <Editor Placeholder="Type here..." PlaceholderColor="{StaticResource Grey400}" TextColor="{StaticResource Black}" AutoSize="Disabled" Margin="10"/>
+                            <Editor Placeholder="Type here..." PlaceholderColor="{StaticResource Gray400}" TextColor="{StaticResource Black}" AutoSize="Disabled" Margin="10"/>
                         </Border>
                     </VerticalStackLayout>
 

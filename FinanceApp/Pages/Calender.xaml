@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.Calender"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource MainColor}"
+             Title="Calender">
+    <Grid RowDefinitions="Auto,*">
+        <VerticalStackLayout Grid.Row="0" Padding="20" Spacing="10">
+            <Grid ColumnDefinitions="Auto, *, Auto" Padding="20,10">
+                <Image Source="back_arrow.png" HeightRequest="25">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Back"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Column="1" Text="Calender" FontSize="22" FontAttributes="Bold" 
+                  TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                    <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="notification"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Border>
+            </Grid>
+        </VerticalStackLayout>
+        <Frame Grid.Row="1" CornerRadius="45" BackgroundColor="{StaticResource Light}" 
+               Margin="0,5,0,-70" HasShadow="False">
+            <ScrollView>
+                <VerticalStackLayout Spacing="25">
+
+                    <Border BackgroundColor="{StaticResource White}" StrokeShape="RoundRectangle 25" StrokeThickness="0" Padding="15,10,15,10">
+                        <VerticalStackLayout Spacing="15">
+                            <Grid ColumnDefinitions="*, *" ColumnSpacing="15">
+                                    <HorizontalStackLayout Grid.Column="0"   Spacing="5" HorizontalOptions="Start" VerticalOptions="Center">
+                                        <Label Text="April" TextColor="{StaticResource Black}" VerticalOptions="Center"/>
+                                        <Image Source="down_arrow.png" HeightRequest="10" VerticalOptions="Center"/>
+                                    </HorizontalStackLayout>
+                                <HorizontalStackLayout Grid.Column="1"  Spacing="5" HorizontalOptions="End" VerticalOptions="Center">
+                                    <Label Text="2023" TextColor="{StaticResource Black}" VerticalOptions="Center"/>
+                                    <Image Source="down_arrow.png" HeightRequest="10" VerticalOptions="Center"/>
+                                </HorizontalStackLayout>
+                            </Grid>
+
+                            <Grid ColumnDefinitions="*,*,*,*,*,*,*" Margin="0,5">
+                                <Label Grid.Column="0" Text="Mon" FontSize="11" TextColor="{StaticResource MainColor}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="1" Text="Tue" FontSize="11" TextColor="{StaticResource MainColor}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="2" Text="Wed" FontSize="11" TextColor="{StaticResource MainColor}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="3" Text="Thu" FontSize="11" TextColor="{StaticResource MainColor}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="4" Text="Fri" FontSize="11" TextColor="{StaticResource MainColor}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="5" Text="Sat" FontSize="11" TextColor="{StaticResource MainColor}" HorizontalOptions="Center"/>
+                                <Label Grid.Column="6" Text="Sun" FontSize="11" TextColor="{StaticResource MainColor}" HorizontalOptions="Center"/>
+                            </Grid>
+
+                            <Grid ColumnDefinitions="*,*,*,*,*,*,*" RowDefinitions="Auto,Auto,Auto,Auto,Auto" RowSpacing="15">
+                                <Label Grid.Row="0" Grid.Column="0" Text="1" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="0" Grid.Column="1" Text="2" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="0" Grid.Column="2" Text="3" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="0" Grid.Column="3" Text="4" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="0" Grid.Column="4" Text="5" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="0" Grid.Column="5" Text="6" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="0" Grid.Column="6" Text="7" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                
+                                <Label Grid.Row="1" Grid.Column="0" Text="8" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="1" Grid.Column="1" Text="9" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="1" Grid.Column="2" Text="10" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="1" Grid.Column="3" Text="11" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="1" Grid.Column="4" Text="12" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="1" Grid.Column="5" Text="13" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="1" Grid.Column="6" Text="14" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                
+                                <Label Grid.Row="2" Grid.Column="0" Text="15" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="2" Grid.Column="1" Text="16" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="2" Grid.Column="2" Text="17" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="2" Grid.Column="3" Text="18" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="2" Grid.Column="4" Text="19" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="2" Grid.Column="5" Text="20" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="2" Grid.Column="6" Text="21" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                
+                                <Label Grid.Row="3" Grid.Column="0" Text="22" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="3" Grid.Column="1" Text="23" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="3" Grid.Column="2" Text="24" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="3" Grid.Column="3" Text="25" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="3" Grid.Column="4" Text="26" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="3" Grid.Column="5" Text="27" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="3" Grid.Column="6" Text="28" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                
+                                <Label Grid.Row="4" Grid.Column="0" Text="29" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="4" Grid.Column="1" Text="30" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                                <Label Grid.Row="4" Grid.Column="2" Text="31" TextColor="{StaticResource Black}" HorizontalOptions="Center"/>
+                            </Grid>
+                        </VerticalStackLayout>
+                    </Border>
+
+                    <Grid ColumnDefinitions="*, *" ColumnSpacing="15">
+                        <Border Grid.Column="0" 
+                           BackgroundColor="{StaticResource EntryBG}" 
+                           StrokeShape="RoundRectangle 20" 
+                           StrokeThickness="0" 
+                           HeightRequest="50">
+                            <Label Text="Spends" 
+                                TextColor="{StaticResource Black}" 
+                                HorizontalOptions="Center" 
+                                VerticalOptions="Center"
+                                FontSize="14"/>
+                        </Border>
+
+                        <Border Grid.Column="1" 
+                              BackgroundColor="{StaticResource MainColor}" 
+                              StrokeShape="RoundRectangle 20" 
+                              StrokeThickness="0" 
+                              HeightRequest="50">
+                            <Label Text="Categories" 
+                                 TextColor="{StaticResource Black}" 
+                                 HorizontalOptions="Center" 
+                                 VerticalOptions="Center" 
+                                 FontAttributes="Bold"
+                                 FontSize="14"/>
+                        </Border>
+                    </Grid>
+
+                    <VerticalStackLayout Spacing="20" HorizontalOptions="FillAndExpand">
+                        <Grid HeightRequest="160" WidthRequest="280" HorizontalOptions="Center" VerticalOptions="Start">
+                            <Grid HorizontalOptions="Start" VerticalOptions="Start">
+                                <Path Fill="{StaticResource MainColor}" 
+                                 Data="M 140,150 L 270,150 A 130,130 0 0 0 140,20 Z" 
+                                   Stroke="White" StrokeThickness="1"/>
+
+                                <Path Fill="{StaticResource MainColor}" 
+                                 Data="M 140,150 L 140,20 A 130,130 0 0 0 50,60 Z" 
+                                 Stroke="White" StrokeThickness="1"/>
+
+                                <Path Fill="{StaticResource MainColor}" 
+                                 Data="M 140,150 L 50,60 A 130,130 0 0 0 10,150 Z" 
+                                Stroke="White" StrokeThickness="1"/>
+                            </Grid>
+
+                            <Label Text="79%" TextColor="{StaticResource White}" FontSize="18" FontAttributes="Bold" 
+                                  TranslationX="60" TranslationY="30" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                            <Label Text="11%" TextColor="{StaticResource White}" FontSize="13" FontAttributes="Bold" 
+                                  TranslationX="-30" TranslationY="-30" HorizontalOptions="Center" VerticalOptions="Center"/>
+
+                            <Label Text="10%" TextColor="{StaticResource White}" FontSize="13" FontAttributes="Bold" 
+                                  TranslationX="-85" TranslationY="30" HorizontalOptions="Center" VerticalOptions="Center"/>
+                        </Grid>
+
+                        <FlexLayout Wrap="Wrap" JustifyContent="Center" AlignItems="Center" Margin="0,10,0,0">
+                            <HorizontalStackLayout Spacing="8" Margin="10,5">
+                                <Ellipse Fill="{StaticResource MainColor}" HeightRequest="12" WidthRequest="12"/>
+                                <Label Text="Groceries" TextColor="{StaticResource Black}" FontSize="13" FontAttributes="Bold"/>
+                            </HorizontalStackLayout>
+
+                            <HorizontalStackLayout Spacing="8" Margin="10,5">
+                                <Ellipse Fill="{StaticResource MainColor}" HeightRequest="12" WidthRequest="12"/>
+                                <Label Text="Others" TextColor="{StaticResource Black}" FontSize="13" FontAttributes="Bold"/>
+                            </HorizontalStackLayout>
+                        </FlexLayout>
+                    </VerticalStackLayout>
+                </VerticalStackLayout>
+            </ScrollView>
+        </Frame>
+    </Grid>
+</ContentPage>

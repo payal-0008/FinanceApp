@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:vm="clr-namespace:FinanceApp.ViewModels"
              x:Class="FinanceApp.Pages.SignUp"
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource MainColor}"
              NavigationPage.HasNavigationBar="False"
              Title="SignUp">
+    <ContentPage.BindingContext>
+        <vm:SignUpViewModel/>
+    </ContentPage.BindingContext>
+
     <Grid RowDefinitions="Auto,*">
         <Label Text="Create Account"
             TextColor="{StaticResource Black}"
@@ -26,7 +31,9 @@
                           BackgroundColor="{StaticResource EntryBG}"
                           CornerRadius="30">
 
-                        <Entry Placeholder="example@example.com" 
+                            <Entry  Text="{Binding FullName}"
+                                x:Name="FullNameEntry"
+                            Placeholder="example@example.com" 
                           PlaceholderColor="{StaticResource Gray400}" 
                           Keyboard="Text" 
                           TextColor="{StaticResource Black}"/>
@@ -41,7 +48,9 @@
                          BackgroundColor="{StaticResource EntryBG}"
                          CornerRadius="30">
 
-                        <Entry Placeholder="example@gmail.com"
+                            <Entry  Text="{Binding Email}"
+                                x:Name="EmailEntry"
+                            Placeholder="example@gmail.com"
                                Keyboard="Email"
                        PlaceholderColor="{StaticResource Gray400}"
                        TextColor="{StaticResource Black}"/>
@@ -57,7 +66,8 @@
                          BackgroundColor="{StaticResource EntryBG}"
                          CornerRadius="30">
 
-                        <Entry Text="+91"
+                            <Entry  Text="{Binding Mobile}"
+                                x:Name="MobileEntry"
                             Placeholder=" 123 456"
                              PlaceholderColor="{StaticResource Gray400}"
                              Keyboard="Numeric"
@@ -72,9 +82,11 @@
                             BackgroundColor="{StaticResource EntryBG}"
                             CornerRadius="30">
 
-                        <Entry Placeholder="DD/MM/YYYY"
+                            <Entry Text="{Binding DateOfBirth}"
+                                x:Name="DobEntry"
+                             Placeholder="DD/MM/YYYY"
                              PlaceholderColor="{StaticResource Gray400}"
-                               Keyboard="Date"
+                             Keyboard="Date"
                              TextColor="{StaticResource Black}"/>
                     </Frame>
                 </Grid>
@@ -86,7 +98,10 @@
                       BackgroundColor="{StaticResource EntryBG}"
                       CornerRadius="30">
 
-                        <Entry Placeholder="1234"
+                            <Entry  Text="{Binding Password}"
+                                    IsPassword="True"
+                                x:Name="PasswordEntry"
+                            Placeholder="1234"
                          PlaceholderColor="{StaticResource Gray400}"
                           Keyboard="Password"
                           TextColor="{StaticResource Black}"/>
@@ -100,7 +115,10 @@
                        BackgroundColor="{StaticResource EntryBG}"
                        CornerRadius="30">
 
-                        <Entry Placeholder="1234"
+                            <Entry  Text="{Binding ConfirmPassword}"
+                                   IsPassword="True"
+                                x:Name="ConfirmPasswordEntry"
+                            Placeholder="1234"
                        PlaceholderColor="{StaticResource Gray400}"
                         Keyboard="Password"
                        TextColor="{StaticResource Black}"/>
@@ -126,7 +144,9 @@
 
                         </Label.FormattedText>
                     </Label>
-                        <Button x:Name="SignUpBtn"
+                        <Button  Command="{Binding RegisterCommand}"
+                            IsEnabled="{Binding IsNotBusy}"
+                            x:Name="SignUpBtn"
                         Grid.Row="2"
                         Text="Sign Up"
                         BackgroundColor="{StaticResource MainColor}"
@@ -136,12 +156,11 @@
                         TextColor="{StaticResource IconColor}"
                         FontAttributes="Bold"
                         FontSize="18"
-                        HorizontalOptions="Center"
-                        Clicked="home"/>
-                        <ActivityIndicator x:Name="SignUpLoader"
+                        HorizontalOptions="Center"/>
+                        <ActivityIndicator IsRunning="{Binding IsBusy}"
+                            IsVisible="{Binding IsBusy}"
+                            x:Name="SignUpLoader"
                        Grid.Row="2" 
-                       IsRunning="False"
-                       IsVisible="False"
                        Color="{StaticResource Black}"
                        HorizontalOptions="Center"
                        VerticalOptions="Center"
@@ -153,7 +172,7 @@
                                 <Span Text="Already have an account? " FontSize="12" TextColor="{StaticResource Black}" FontAttributes="Bold"/>
                                     <Span Text="LogIn" FontSize="12" TextColor="{StaticResource Blue}" FontAttributes="Bold">
                                         <Span.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="login"/>
+                                            <TapGestureRecognizer Command="{Binding GoToLoginCommand}"/>
                                         </Span.GestureRecognizers>
                                     </Span>
                             </FormattedString>

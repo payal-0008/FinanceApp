@@ -2,10 +2,14 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="FinanceApp.Pages.Login"
+             xmlns:vm="clr-namespace:FinanceApp.ViewModels"
              Shell.NavBarIsVisible="False"
              BackgroundColor="{StaticResource MainColor}"
              NavigationPage.HasNavigationBar="False"
              Title="Login">
+    <ContentPage.BindingContext>
+        <vm:LoginViewModel/>
+    </ContentPage.BindingContext>
     <Grid RowDefinitions="Auto,*">
         <Label Text="Welcome"
                TextColor="{StaticResource Black}"
@@ -25,7 +29,9 @@
                              BackgroundColor="{StaticResource EntryBG}"
                              CornerRadius="30">
 
-                        <Entry Placeholder="example@gmail.com" 
+                        <Entry x:Name="EmailEntry"
+                               Text="{Binding Email}"
+                            Placeholder="example@gmail.com" 
                              PlaceholderColor="{StaticResource Gray400}" 
                              Keyboard="Email" 
                              TextColor="{StaticResource Black}"/>
@@ -39,7 +45,9 @@
                             BackgroundColor="{StaticResource EntryBG}"
                             CornerRadius="30">
 
-                        <Entry Placeholder="123456"
+                            <Entry  Text="{Binding Password}"
+                                x:Name="PasswordEntry"
+                            Placeholder="......"
                           PlaceholderColor="{StaticResource Gray400}" 
                           Keyboard="Password" 
                           TextColor="{StaticResource Black}"/>
@@ -51,20 +59,21 @@
                             BackgroundColor="{StaticResource MainColor}"
                             CornerRadius="20"
                             Margin="0,50,0,0"
+                            Command="{Binding LoginCommand}"
+                            IsEnabled="{Binding IsNotBusy}"
                             Padding="60,0"
                             TextColor="{StaticResource Black}"
                             FontAttributes="Bold"
                             FontSize="18"
-                            HorizontalOptions="Center"
-                            Clicked="home"/>
+                            HorizontalOptions="Center"/>
                         <ActivityIndicator x:Name="Loader"
-                       IsRunning="False"
-                       IsVisible="False"
-                       Color="{StaticResource Black}"
-                       HorizontalOptions="Center"
-                       HeightRequest="40"
-                       WidthRequest="40"
-                       Margin="0,-45,0,0" />
+                             IsRunning="{Binding IsBusy}"
+                             IsVisible="{Binding IsBusy}"
+                             Color="{StaticResource Black}"
+                             HorizontalOptions="Center"
+                             HeightRequest="40"
+                             WidthRequest="40"
+                             Margin="0,-45,0,0" />
                         <Label Grid.Row="1"
                            Text="Forget Password?"
                            HorizontalOptions="Center"
@@ -77,15 +86,14 @@
                     </Label>
                     <Button Grid.Row="2"
                             Text="Sign Up"
+                            Command="{Binding GoToSignUpCommand}"
                             BackgroundColor="{StaticResource EntryBG}"
                             CornerRadius="20"
                             Padding="58,0"
                             TextColor="{StaticResource IconColor}"
                             FontAttributes="Bold"
                             FontSize="18"
-                            HorizontalOptions="Center"
-                            Clicked="SignUp"
-                    />
+                            HorizontalOptions="Center"/>
                     <Label Grid.Row="4" FontSize="15" HorizontalOptions="Center">
                         <Label.FormattedText>
                             <FormattedString>
@@ -97,7 +105,7 @@
                                    TextColor="{StaticResource Blue}"
                                    FontAttributes="Bold">
                                         <Span.GestureRecognizers>
-                                            <TapGestureRecognizer Tapped="fingerprint"/>
+                                            <TapGestureRecognizer Command="{Binding GoToFingerprintCommand}"/>
                                         </Span.GestureRecognizers>
                                     </Span>
                                     <Span Text=" To Access " 

@@ -23,9 +23,26 @@ public partial class Travel : ContentPage
         TravelList.ItemsSource = TravelData;
     }
 
-    private async void Back(object sender, EventArgs e) => await Navigation.PopAsync();
+    private async void Back(object sender, EventArgs e)
+    {
+        await Navigation.PopAsync();
+    }
 
-    private async void notification(object sender, EventArgs e) => await Navigation.PushAsync(new Notification());
+    private async void notification(object sender, EventArgs e)
+    {
+        await Navigation.PushAsync(new Notification());
 
-    private async void OnSaveClick(object sender, EventArgs e) => await Navigation.PushAsync(new AddSavings());
+    }
+
+    private async void OnSaveClick(object sender, EventArgs e)
+    {
+        try
+        {
+            await Navigation.PushAsync(new AddSavings());
+        }
+        catch (Exception ex)
+        {
+            await DisplayAlert("Error", ex.Message, "OK");
+        }
+    }
 }

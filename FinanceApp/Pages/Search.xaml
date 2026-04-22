@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="FinanceApp.Pages.Search"
+             Shell.NavBarIsVisible="False"
+             BackgroundColor="{StaticResource MainColor}"
+             Title="Search">
+    <Grid RowDefinitions="Auto,*">
+        <VerticalStackLayout Grid.Row="0" Padding="20" Spacing="10">
+            <Grid ColumnDefinitions="Auto, *, Auto" Padding="20,10">
+                <Image Source="back_arrow.png" HeightRequest="25">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="Back"/>
+                    </Image.GestureRecognizers>
+                </Image>
+                <Label Grid.Column="1" Text="Search" FontSize="22" FontAttributes="Bold" 
+                     TextColor="{StaticResource Black}" HorizontalOptions="Center" VerticalOptions="Center"/>
+                <Border Grid.Column="2" BackgroundColor="{StaticResource White}" HeightRequest="45" WidthRequest="45" StrokeShape="RoundRectangle 22">
+                    <Image Source="bell.png" HeightRequest="20" VerticalOptions="Center">
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="notification"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                </Border>
+            </Grid>
+        </VerticalStackLayout>
+        <Frame Grid.Row="1" CornerRadius="45" BackgroundColor="{StaticResource Light}" 
+         Margin="0,5,0,-70" HasShadow="False">
+            <ScrollView>
+                <Grid RowDefinitions="Auto, Auto, Auto, Auto, Auto" RowSpacing="25">
+
+                    <VerticalStackLayout Grid.Row="0" Spacing="10">
+                        <Label Text="Categories" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                        <Border BackgroundColor="{StaticResource EntryBG}" 
+                            StrokeShape="RoundRectangle 25" 
+                            StrokeThickness="0" 
+                            HeightRequest="55" 
+                            Padding="20,0">
+                            <Grid ColumnDefinitions="*, Auto">
+                                <Entry Grid.Column="0" 
+                                    Placeholder="Select the category" 
+                                    PlaceholderColor="{StaticResource Gray600}" 
+                                    TextColor="{StaticResource Black}"
+                                    FontSize="15"
+                                    VerticalOptions="Center"
+                                    BackgroundColor="{StaticResource transparent}"/>
+
+                                <Image Grid.Column="1" 
+                                      Source="down_arrow.png" 
+                                      HeightRequest="15" 
+                                      WidthRequest="15"
+                                      VerticalOptions="Center"
+                                      InputTransparent="True"/>
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Row="1" Spacing="10">
+                        <Label Text="Date" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                        <Border BackgroundColor="{StaticResource EntryBG}" 
+                           StrokeShape="RoundRectangle 25" 
+                           StrokeThickness="0" 
+                           HeightRequest="55" 
+                           Padding="20,0">
+                            <Grid ColumnDefinitions="*, Auto">
+                                <Entry Grid.Column="0" 
+                                   Placeholder="30 /APR/2023"
+                                   PlaceholderColor="{StaticResource Gray600}" 
+                                   TextColor="{StaticResource Black}"
+                                   FontSize="15"
+                                   VerticalOptions="Center"
+                                   Keyboard="Date"
+                                   BackgroundColor="{StaticResource transparent}"/>
+
+                                <Image Grid.Column="1" 
+                                  Source="calendar.png" 
+                                  HeightRequest="20" 
+                                  WidthRequest="20"
+                                  VerticalOptions="Center"
+                                  InputTransparent="True"/>
+                            </Grid>
+                        </Border>
+                    </VerticalStackLayout>
+
+                    <VerticalStackLayout Grid.Row="2" Spacing="15">
+                        <Label Text="Report" FontSize="16" FontAttributes="Bold" TextColor="{StaticResource Black}"/>
+                        <HorizontalStackLayout Spacing="40">
+                            <HorizontalStackLayout Spacing="10">
+                                <RadioButton Content="Income" IsChecked="True" TextColor="{StaticResource Black}"/>
+                            </HorizontalStackLayout>
+                            <HorizontalStackLayout Spacing="10">
+                                <RadioButton Content="Expense" IsChecked="True" TextColor="{StaticResource Black}"/>
+                            </HorizontalStackLayout>
+                        </HorizontalStackLayout>
+                    </VerticalStackLayout>
+
+                    <Button Grid.Row="3" Text="Search" 
+                            BackgroundColor="{StaticResource MainColor}" 
+                            TextColor="{StaticResource Black}" 
+                            FontAttributes="Bold" 
+                            CornerRadius="25" 
+                            HeightRequest="55" 
+                            WidthRequest="200"
+                            HorizontalOptions="Center"
+                            Margin="0,20,0,0"/>
+
+                </Grid>
+            </ScrollView>
+        </Frame>
+         
+    </Grid>
+</ContentPage>

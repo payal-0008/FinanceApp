@@ -52,7 +52,7 @@ public partial class IncomeAndExpense : ContentPage
         amt.TextColor = isSelected ? Colors.White : (border == ExpenseBorder ? Color.FromArgb("#3F51B5") : Colors.Black);
     }
 
-    private async void Back(object sender, EventArgs e) => await Navigation.PopAsync();
+    private async void Back(object sender, EventArgs e) { await Navigation.PopAsync(); }
 
-    private async void notification(object sender, EventArgs e) => await Navigation.PushAsync(new Notification());
+    private async void notification(object sender, EventArgs e) { await Navigation.PushAsync(new Notification()); }
 }
